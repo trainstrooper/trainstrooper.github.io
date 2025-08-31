@@ -84,28 +84,29 @@
              <a href="index.html" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Home</a>
              <a href="gallery.html" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Gallery</a>
              <a href="railquest.html" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">RailQuest</a>
-             <a href="contact.html" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Contact</a>
+             <a href="contact.html" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700 active">Contact</a>
         </div>
     </header>
-
+    
     <main>
-        <!-- Contact Page Section -->
-        <section id="contact" class="page-content min-h-screen bg-gray-900 py-16 px-4 flex items-center justify-center">
-             <div class="container mx-auto max-w-xl">
-                <h2 class="text-4xl font-bold text-center mb-12">Get In Touch</h2>
-                <div class="bg-gray-800 p-8 rounded-lg shadow-xl">
-                    <form>
+        <!-- Contact Section -->
+        <section id="contact" class="page-content min-h-screen bg-gray-950 py-16 px-4">
+            <div class="container mx-auto">
+                <div class="max-w-xl mx-auto text-center mb-12">
+                    <h2 class="text-4xl sm:text-5xl font-bold mb-4">Get In Touch</h2>
+                    <p class="text-lg text-gray-400">
+                        Have a question, a suggestion, or just want to share your passion for trains? Drop me a line below!
+                    </p>
+                </div>
+                <div class="max-w-2xl mx-auto bg-gray-800 p-8 md:p-12 rounded-xl shadow-lg">
+                    <form id="contact-form">
                         <div class="mb-6">
-                            <label for="name" class="block text-gray-300 text-sm font-bold mb-2">Name</label>
-                            <input type="text" id="name" class="w-full bg-gray-700 text-white rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your Name">
-                        </div>
-                         <div class="mb-6">
-                            <label for="email" class="block text-gray-300 text-sm font-bold mb-2">Email</label>
-                            <input type="email" id="email" class="w-full bg-gray-700 text-white rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="your.email@example.com">
+                            <label for="email" class="block text-gray-300 text-sm font-bold mb-2">Email Address</label>
+                            <input type="email" id="email" class="w-full bg-gray-700 text-white rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="your.email@example.com" required>
                         </div>
                          <div class="mb-6">
                             <label for="message" class="block text-gray-300 text-sm font-bold mb-2">Message</label>
-                            <textarea id="message" rows="5" class="w-full bg-gray-700 text-white rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Let's talk about trains!"></textarea>
+                            <textarea id="message" rows="5" class="w-full bg-gray-700 text-white rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Let's talk about trains!" required></textarea>
                         </div>
                         <div class="text-center">
                             <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">
@@ -113,22 +114,118 @@
                             </button>
                         </div>
                     </form>
+                    <div id="status-message" class="mt-6 text-center text-sm font-semibold hidden"></div>
                 </div>
             </div>
         </section>
     </main>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
+    <!-- Footer Banner -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-6 text-center text-sm md:text-base">
+            <p class="mb-2">Connect with Trains Trooper!</p>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-8">
+                <a href="https://www.youtube.com/@trainstrooper" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition duration-300">
+                    <span class="font-semibold">YouTube:</span> @trainstrooper
+                </a>
+                <a href="contact.html" class="hover:text-blue-400 transition duration-300">
+                    <span class="font-semibold">Email:</span> Contact Us
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, serverTimestamp, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Firebase configuration and initialization
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+
+        let app;
+        let db;
+        let auth;
+        let userId;
+
+        const statusMessage = document.getElementById('status-message');
+
+        function showMessage(message, isError = false) {
+            statusMessage.textContent = message;
+            statusMessage.classList.remove('hidden');
+            if (isError) {
+                statusMessage.classList.add('text-red-400');
+                statusMessage.classList.remove('text-green-400');
+            } else {
+                statusMessage.classList.add('text-green-400');
+                statusMessage.classList.remove('text-red-400');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', async function () {
             // Add a class to the body when the page loads to trigger the fade-in effect
             document.body.classList.add('page-loaded');
 
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
+            const contactForm = document.getElementById('contact-form');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
 
             // Toggle mobile menu
             mobileMenuButton.addEventListener('click', function() {
                 mobileMenu.classList.toggle('hidden');
+            });
+
+            // Initialize Firebase
+            try {
+                if (Object.keys(firebaseConfig).length > 0) {
+                    app = initializeApp(firebaseConfig);
+                    db = getFirestore(app);
+                    auth = getAuth(app);
+                    setLogLevel('Debug');
+                    await signInAnonymously(auth);
+                    userId = auth.currentUser.uid;
+                } else {
+                    //showMessage("Firebase configuration is missing.", true);
+                }
+            } catch (error) {
+                console.error("Firebase initialization failed:", error);
+                showMessage("Failed to connect to the database. Please try again later.", true);
+            }
+
+            // Handle form submission
+            contactForm.addEventListener('submit', async function(event) {
+                event.preventDefault();
+
+                if (!db) {
+                    //showMessage("Database not initialized.", true);
+                    contactForm.reset();
+                    return;
+                }
+
+                const email = emailInput.value.trim();
+                const message = messageInput.value.trim();
+
+                if (!email || !message) {
+                    showMessage("Please fill out both the email and message fields.", true);
+                    return;
+                }
+
+                try {
+                    const contactsCollectionPath = `/artifacts/${appId}/public/data/contacts`;
+                    await addDoc(collection(db, contactsCollectionPath), {
+                        email: email,
+                        message: message,
+                        createdAt: serverTimestamp()
+                    });
+                    showMessage("Message sent successfully!", false);
+                    contactForm.reset();
+                } catch (e) {
+                    console.error("Error adding document: ", e);
+                    showMessage("Failed to send message. Please try again later.", true);
+                }
             });
         });
     </script>

@@ -55,6 +55,100 @@
             color: #3b82f6; /* blue-500 */
             border-bottom: 2px solid #3b82f6;
         }
+
+        /* Custom CSS for Gallery Tiles */
+        .gallery-tile {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.75rem; /* rounded-xl */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            cursor: pointer;
+        }
+
+        .gallery-tile:hover {
+            transform: scale(1.03) rotate(1deg);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .gallery-tile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        /* Modal styles */
+        .modal {
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .modal.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 0.5rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+            font-size: 3rem;
+            cursor: pointer;
+            padding: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-button:hover {
+            color: #ccc;
+        }
+
+        #prev-button {
+            left: 1rem;
+        }
+
+        #next-button {
+            right: 1rem;
+        }
+
     </style>
 </head>
 <body class="bg-gray-900 text-white">
@@ -82,7 +176,7 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-2 pt-2 pb-3 space-y-1 sm:px-3">
              <a href="index.html" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Home</a>
-             <a href="gallery.html" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Gallery</a>
+             <a href="gallery.html" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700 active">Gallery</a>
              <a href="railquest.html" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">RailQuest</a>
              <a href="contact.html" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Contact</a>
         </div>
@@ -93,54 +187,56 @@
         <section id="gallery" class="page-content min-h-screen bg-gray-950 py-16 px-4">
             <div class="container mx-auto">
                 <h2 class="text-4xl sm:text-5xl font-bold text-center mb-12">My Gallery</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                    <!-- Placeholder images for the gallery -->
-                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl">
-                        <img src="https://placehold.co/600x400/1e293b/a1a1aa?text=Train+1" alt="A powerful freight train moving through the countryside." class="w-full h-48 object-cover">
-                        <div class="p-4">
-                            <h3 class="font-semibold text-lg text-white">Freight Train</h3>
-                            <p class="text-gray-400 text-sm">A beautiful shot of a locomotive on a clear day.</p>
-                        </div>
+                <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-8">
+                    <!-- Gallery Tiles -->
+                    <div class="gallery-tile" data-full-src="assets/gallery/2022-04-23_13-58-58_973.webp">
+                        <img src="assets/gallery/2022-04-23_13-58-58_973.webp" alt="A powerful CSX train on a sunny day.">
                     </div>
-                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl">
-                        <img src="https://placehold.co/600x400/1e293b/a1a1aa?text=Train+2" alt="A high-speed bullet train leaving a modern station." class="w-full h-48 object-cover">
-                        <div class="p-4">
-                            <h3 class="font-semibold text-lg text-white">Bullet Train</h3>
-                            <p class="text-gray-400 text-sm">Sleek and fast, a marvel of modern engineering.</p>
-                        </div>
+                    <div class="gallery-tile" data-full-src="assets/gallery/2022-04-26_18-13-39_000.webp">
+                        <img src="assets/gallery/2022-04-26_18-13-39_000.webp" alt="An orange BNSF train with a blue sky background.">
                     </div>
-                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl">
-                        <img src="https://placehold.co/600x400/1e293b/a1a1aa?text=Train+3" alt="A vintage steam locomotive crossing a historic bridge." class="w-full h-48 object-cover">
-                        <div class="p-4">
-                            <h3 class="font-semibold text-lg text-white">Steam Engine</h3>
-                            <p class="text-gray-400 text-sm">A nostalgic look back at the golden age of steam.</p>
-                        </div>
+                    <div class="gallery-tile" data-full-src="assets/gallery/2022-05-21_19-35-28_244_web.webp">
+                        <img src="assets/gallery/2022-05-21_19-35-28_244_web.webp" alt="A red train on a track in the countryside.">
                     </div>
-                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl">
-                        <img src="https://placehold.co/600x400/1e293b/a1a1aa?text=Train+4" alt="An elegant passenger train waiting at a platform." class="w-full h-48 object-cover">
-                        <div class="p-4">
-                            <h3 class="font-semibold text-lg text-white">Passenger Train</h3>
-                            <p class="text-gray-400 text-sm">Ready for a journey, a classic passenger train.</p>
-                        </div>
+                    <div class="gallery-tile" data-full-src="assets/gallery/2022-06-19_03-16-26_500.webp">
+                        <img src="assets/gallery/2022-06-19_03-16-26_500.webp" alt="A gray and blue AMTRAK train.">
                     </div>
-                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl">
-                        <img src="https://placehold.co/600x400/1e293b/a1a1aa?text=Train+5" alt="A locomotive in a beautiful mountain landscape." class="w-full h-48 object-cover">
-                        <div class="p-4">
-                            <h3 class="font-semibold text-lg text-white">Mountain Pass</h3>
-                            <p class="text-gray-400 text-sm">A train cutting through a stunning mountain view.</p>
-                        </div>
+                    <div class="gallery-tile" data-full-src="assets/gallery/2022-06-19_03-42-42_300.webp">
+                        <img src="assets/gallery/2022-06-19_03-42-42_300.webp" alt="A Florida East Coast train.">
                     </div>
-                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl">
-                        <img src="https://placehold.co/600x400/1e293b/a1a1aa?text=Train+6" alt="A night shot of a train in a bustling city." class="w-full h-48 object-cover">
-                        <div class="p-4">
-                            <h3 class="font-semibold text-lg text-white">City Lights</h3>
-                            <p class="text-gray-400 text-sm">A night train glides through a cityscape.</p>
-                        </div>
+                    <div class="gallery-tile" data-full-src="assets/gallery/2025-07-30_11-51-57_410.webp">
+                        <img src="assets/gallery/2025-07-30_11-51-57_410.webp" alt="A CSX train with a CSX logo.">
+                    </div>
+                    <div class="gallery-tile" data-full-src="assets/gallery/2025-07-30_11-54-26_010_web.webp">
+                        <img src="assets/gallery/2025-07-30_11-54-26_010_web.webp" alt="A CSX train with a CSX logo.">
+                    </div>
+                    <div class="gallery-tile" data-full-src="assets/gallery/2025-07-30_11-54-39_510_web.webp">
+                        <img src="assets/gallery/2025-07-30_11-54-39_510_web.webp" alt="A CSX train with a CSX logo.">
+                    </div>
+                    <div class="gallery-tile" data-full-src="assets/gallery/2025-07-31_09-33-54_660.webp">
+                        <img src="assets/gallery/2025-07-31_09-33-54_660.webp" alt="A CSX train with a CSX logo.">
+                    </div>
+                    <div class="gallery-tile" data-full-src="assets/gallery/2025-07-31_15-37-52_114.webp">
+                        <img src="assets/gallery/2025-07-31_15-37-52_114.webp" alt="A CSX train with a CSX logo.">
+                    </div>
+                    <div class="gallery-tile" data-full-src="assets/gallery/2025-07-31_16-25-06_558.webp">
+                        <img src="assets/gallery/2025-07-31_16-25-06_558.webp" alt="A CSX train with a CSX logo.">
+                    </div>
+                    <div class="gallery-tile" data-full-src="assets/gallery/2025-07-31_20-40-57_000.webp">
+                        <img src="assets/gallery/2025-07-31_20-40-57_000.webp" alt="A CSX train with a CSX logo.">
                     </div>
                 </div>
             </div>
         </section>
     </main>
+    
+    <!-- Image Modal -->
+    <div id="image-modal" class="modal">
+        <span class="close-button">&times;</span>
+        <img class="modal-content" id="modal-image">
+        <button id="prev-button" class="nav-button">&#10094;</button>
+        <button id="next-button" class="nav-button">&#10095;</button>
+    </div>
 
     <!-- Footer Banner -->
     <footer class="bg-gray-800 text-white py-6">
@@ -164,10 +260,58 @@
             
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
+            const galleryTiles = document.querySelectorAll('.gallery-tile');
+            const modal = document.getElementById('image-modal');
+            const modalImage = document.getElementById('modal-image');
+            const closeButton = document.querySelector('.close-button');
+            const prevButton = document.getElementById('prev-button');
+            const nextButton = document.getElementById('next-button');
+
+            const galleryImages = Array.from(galleryTiles).map(tile => tile.getAttribute('data-full-src'));
+            let currentIndex = 0;
+
+            function updateModalImage(index) {
+                modalImage.src = galleryImages[index];
+            }
 
             // Toggle mobile menu
             mobileMenuButton.addEventListener('click', function() {
                 mobileMenu.classList.toggle('hidden');
+            });
+
+            // Open modal on image click
+            galleryTiles.forEach((tile, index) => {
+                tile.addEventListener('click', function() {
+                    currentIndex = index;
+                    updateModalImage(currentIndex);
+                    modal.classList.add('open');
+                });
+            });
+
+            // Close modal with the close button
+            closeButton.addEventListener('click', function() {
+                modal.classList.remove('open');
+            });
+
+            // Close modal when clicking outside the image
+            modal.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    modal.classList.remove('open');
+                }
+            });
+
+            // Navigate to previous image
+            prevButton.addEventListener('click', function(event) {
+                event.stopPropagation(); // Prevents modal from closing
+                currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+                updateModalImage(currentIndex);
+            });
+
+            // Navigate to next image
+            nextButton.addEventListener('click', function(event) {
+                event.stopPropagation(); // Prevents modal from closing
+                currentIndex = (currentIndex + 1) % galleryImages.length;
+                updateModalImage(currentIndex);
             });
         });
     </script>

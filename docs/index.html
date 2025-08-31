@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trains Trooper</title>
+    <title>The Railway Hub</title>
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Inter -->
@@ -16,6 +16,14 @@
             /* Start with opacity 0 and set a smooth transition */
             opacity: 0;
             transition: opacity 0.7s ease-in;
+            
+            /* Background image covering the entire viewport */
+            background-image: url('assets/thiago-logo-original.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
         }
 
         /* Class added by JavaScript to trigger the fade-in */
@@ -23,33 +31,18 @@
             opacity: 1;
         }
 
-        .full-background {
-            /* A beautiful train image from a free-to-use source */
-            background-image: url('assets/thiago-logo-original.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: relative; /* Required for the pseudo-element */
-        }
-    
-        /* Add a dark semi-transparent overlay */
-        .full-background::before {
+        /* Full-screen semi-transparent overlay */
+        body::before {
             content: '';
-            position: absolute;
+            position: fixed; /* Fixed position to cover the entire viewport */
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.85); /* Adjusted opacity for better text readability */
-            z-index: 0; 
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: -1; /* Place it behind the content */
         }
     
-        /* Ensure the content inside is above the overlay */
-        .full-background > * {
-            position: relative;
-            z-index: 1;
-        }
-
         /* Style for the active navigation link */
         .nav-link.active {
             color: #3b82f6; /* blue-500 */
@@ -57,7 +50,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-900 text-white">
+<body class="bg-gray-900 text-white flex flex-col min-h-screen">
 
     <!-- Header and Navigation -->
     <header class="bg-gray-800 shadow-lg sticky top-0 z-50">
@@ -88,10 +81,10 @@
         </div>
     </header>
 
-    <main>
+    <main class="flex-grow flex items-center justify-center">
         <!-- Home Page Section -->
-        <section id="home" class="page-content">
-            <div class="full-background w-full h-screen flex flex-col items-center justify-center text-center px-4">
+        <section id="home" class="page-content w-full h-full">
+            <div class="w-full h-full flex flex-col items-center justify-center text-center px-4">
                 <h1 class="text-4xl sm:text-6xl font-extrabold text-white mb-4 tracking-tight">
                     A Passion for Rails
                 </h1>
@@ -104,7 +97,7 @@
             </div>
         </section>
     </main>
-
+    
     <!-- Footer Banner -->
     <footer class="bg-gray-800 text-white py-6">
         <div class="container mx-auto px-6 text-center text-sm md:text-base">
