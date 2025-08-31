@@ -69,7 +69,7 @@
             </a>
             <div class="hidden md:flex space-x-8">
                 <a href="#home" class="nav-link text-lg hover:text-blue-400 transition duration-300 active" data-page="home">Home</a>
-                <a href="gallery.html" class="nav-link text-lg hover:text-blue-400 transition duration-300">Gallery</a>
+                <a href="#gallery" class="nav-link text-lg hover:text-blue-400 transition duration-300" data-page="gallery">Gallery</a>
                 <a href="railquest.html" class="nav-link text-lg hover:text-blue-400 transition duration-300">RailQuest</a>
                 <a href="#contact" class="nav-link text-lg hover:text-blue-400 transition duration-300" data-page="contact">Contact</a>
             </div>
@@ -83,7 +83,7 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-2 pt-2 pb-3 space-y-1 sm:px-3">
              <a href="#home" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700" data-page="home">Home</a>
-             <a href="gallery.html" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Gallery</a>
+             <a href="#gallery" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700" data-page="gallery">Gallery</a>
              <a href="railquest.html" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">RailQuest</a>
              <a href="#contact" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700" data-page="contact">Contact</a>
         </div>
@@ -102,6 +102,63 @@
                 <a href="#gallery" data-page="gallery" class="nav-link-cta bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">
                     Explore my Gallery
                 </a>
+            </div>
+        </section>
+
+        <!-- Gallery Page Section -->
+        <section id="gallery" class="page-content hidden min-h-screen bg-gray-900 py-16 px-4">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-12">Train Gallery</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Image 1 -->
+                    <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                        <img src="https://placehold.co/600x400/1a202c/ffffff?text=Steam+Locomotive" alt="Steam Locomotive" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl">Classic Steam Engine</h3>
+                            <p class="text-gray-400">The titans of the industrial age.</p>
+                        </div>
+                    </div>
+                    <!-- Image 2 -->
+                    <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                        <img src="https://placehold.co/600x400/2d3748/ffffff?text=Bullet+Train" alt="Bullet Train" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl">Modern Bullet Train</h3>
+                            <p class="text-gray-400">The pinnacle of speed and efficiency.</p>
+                        </div>
+                    </div>
+                    <!-- Image 3 -->
+                    <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                        <img src="https://placehold.co/600x400/4a5568/ffffff?text=Freight+Train" alt="Freight Train" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl">Heavy-Duty Freight</h3>
+                            <p class="text-gray-400">The workhorses of modern commerce.</p>
+                        </div>
+                    </div>
+                    <!-- Image 4 -->
+                    <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                        <img src="https://placehold.co/600x400/718096/ffffff?text=Mountain+Railway" alt="Mountain Railway" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl">Scenic Mountain Railway</h3>
+                            <p class="text-gray-400">Breathtaking views and incredible engineering.</p>
+                        </div>
+                    </div>
+                    <!-- Image 5 -->
+                    <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                        <img src="https://placehold.co/600x400/a0aec0/1a202c?text=Subway+Train" alt="Subway Train" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl">Urban Subway</h3>
+                            <p class="text-gray-400">The heart of city transportation.</p>
+                        </div>
+                    </div>
+                    <!-- Image 6 -->
+                    <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                        <img src="https://placehold.co/600x400/edf2f7/1a202c?text=Vintage+Carriage" alt="Vintage Carriage" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl">Vintage Carriage</h3>
+                            <p class="text-gray-400">Travel back to the golden age of rail.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
