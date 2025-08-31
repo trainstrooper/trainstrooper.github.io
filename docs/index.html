@@ -3,86 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon - All Aboard! Trains & Rail Fans</title>
+    <title>Full-Screen Background</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            text-align: center;
-            background-image: url('http://googleusercontent.com/image_generation_content/0');
+        .full-background {
+            background-image: url('assets/thiago-logo-original.png');
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
+            position: relative; /* Required for the pseudo-element */
         }
-
-        .container {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 40px 60px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            width: 90%;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
+    
+        /* Add a dark semi-transparent overlay */
+        .full-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85); /* Adjust opacity as needed */
+            z-index: 0; /* Ensure it stays behind the content */
         }
-
-        h1 {
-            font-size: 3em;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-
-        p {
-            font-size: 1.2em;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .countdown {
-            font-size: 2em;
-            font-weight: bold;
-            color: #c0392b;
-            margin-top: 20px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 12px 25px;
-            background-color: #c0392b;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1em;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background-color: #e74c3c;
-        }
-
-        .logo {
-            margin-bottom: 20px;
+    
+        /* Ensure the content inside the container is above the overlay */
+        .full-background > * {
+            position: relative;
+            z-index: 1;
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <div class="logo">
-            <img src="https://i.ibb.co/L5QW53N/train-logo.png" alt="Train Logo" style="max-width: 150px;">
+<body class="bg-gray-900">
+    <!--
+      The main container that will hold the full-screen background.
+      The `h-screen` and `w-screen` classes from Tailwind ensure it takes up
+      the entire height and width of the viewport.
+    -->
+    <div class="full-background w-screen h-screen flex flex-col items-center justify-center">
+        <!-- Content to be displayed on top of the background -->
+        <div class="bg-gray-900 bg-opacity-50 p-6 rounded-lg shadow-lg text-center">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-2 tracking-wide">
+                Welcome to My Site
+            </h1>
+            <p class="text-lg text-white font-medium">
+                The image `thiago-logo-original.png` is the full background.
+            </p>
+            <p class="text-sm text-gray-200 mt-2">
+                Make sure to replace the placeholder URL in the code with your actual image path.
+            </p>
         </div>
-        <h1>Coming Soon</h1>
-        <p>We're hard at work building a website for all things trains and rail fans. Get ready for an exciting journey into locomotive history, breathtaking photography, and the vibrant community of rail enthusiasts.</p>
-        <p>The journey begins soon. Stay tuned!</p>
-        <div class="countdown">
-            </div>
-        <a href="#" class="cta-button">Notify Me When We Launch</a>
     </div>
 </body>
 </html>
