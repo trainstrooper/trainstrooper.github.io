@@ -13,7 +13,16 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            /* Start with opacity 0 and set a smooth transition */
+            opacity: 0;
+            transition: opacity 0.7s ease-in;
         }
+
+        /* Class added by JavaScript to trigger the fade-in */
+        body.page-loaded {
+            opacity: 1;
+        }
+
         .full-background {
             /* A beautiful train image from a free-to-use source */
             background-image: url('assets/thiago-logo-original.png');
@@ -98,6 +107,9 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Add a class to the body when the page loads to trigger the fade-in effect
+            document.body.classList.add('page-loaded');
+
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
 
