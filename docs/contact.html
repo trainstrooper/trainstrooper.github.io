@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rail Quest - Trains Trooper</title>
+    <title>Contact - Trains Trooper</title>
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Inter -->
@@ -60,8 +60,8 @@
             <div class="hidden md:flex space-x-8">
                 <a href="index.html" class="nav-link text-lg hover:text-blue-400 transition duration-300">Home</a>
                 <a href="gallery.html" class="nav-link text-lg hover:text-blue-400 transition duration-300">Gallery</a>
-                <a href="railquest.html" class="nav-link text-lg hover:text-blue-400 transition duration-300 active">RailQuest</a>
-                <a href="contact.html" class="nav-link text-lg hover:text-blue-400 transition duration-300">Contact</a>
+                <a href="railquest.html" class="nav-link text-lg hover:text-blue-400 transition duration-300">RailQuest</a>
+                <a href="contact.html" class="nav-link text-lg hover:text-blue-400 transition duration-300 active">Contact</a>
             </div>
             <!-- Mobile Menu Button -->
             <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
@@ -78,56 +78,32 @@
              <a href="contact.html" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Contact</a>
         </div>
     </header>
-    
+
     <main>
-        <!-- Gallery Section -->
-        <section id="gallery" class="page-content min-h-screen bg-gray-950 py-16 px-4">
-            <div class="container mx-auto">
-                <h2 class="text-4xl sm:text-5xl font-bold text-center mb-12">My Railfan Gallery</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                    <!-- Placeholder images for the gallery -->
-                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl">
-                        <img src="https://placehold.co/600x400/1e293b/a1a1aa?text=Train+1" alt="A powerful freight train moving through the countryside." class="w-full h-48 object-cover">
-                        <div class="p-4">
-                            <h3 class="font-semibold text-lg text-white">Freight Train</h3>
-                            <p class="text-gray-400 text-sm">A beautiful shot of a locomotive on a clear day.</p>
+        <!-- Contact Page Section -->
+        <section id="contact" class="page-content min-h-screen bg-gray-900 py-16 px-4 flex items-center justify-center">
+             <div class="container mx-auto max-w-xl">
+                <h2 class="text-4xl font-bold text-center mb-12">Get In Touch</h2>
+                <div class="bg-gray-800 p-8 rounded-lg shadow-xl">
+                    <form>
+                        <div class="mb-6">
+                            <label for="name" class="block text-gray-300 text-sm font-bold mb-2">Name</label>
+                            <input type="text" id="name" class="w-full bg-gray-700 text-white rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your Name">
                         </div>
-                    </div>
-                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl">
-                        <img src="https://placehold.co/600x400/1e293b/a1a1aa?text=Train+2" alt="A high-speed bullet train leaving a modern station." class="w-full h-48 object-cover">
-                        <div class="p-4">
-                            <h3 class="font-semibold text-lg text-white">Bullet Train</h3>
-                            <p class="text-gray-400 text-sm">Sleek and fast, a marvel of modern engineering.</p>
+                         <div class="mb-6">
+                            <label for="email" class="block text-gray-300 text-sm font-bold mb-2">Email</label>
+                            <input type="email" id="email" class="w-full bg-gray-700 text-white rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="your.email@example.com">
                         </div>
-                    </div>
-                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl">
-                        <img src="https://placehold.co/600x400/1e293b/a1a1aa?text=Train+3" alt="A vintage steam locomotive crossing a historic bridge." class="w-full h-48 object-cover">
-                        <div class="p-4">
-                            <h3 class="font-semibold text-lg text-white">Steam Engine</h3>
-                            <p class="text-gray-400 text-sm">A nostalgic look back at the golden age of steam.</p>
+                         <div class="mb-6">
+                            <label for="message" class="block text-gray-300 text-sm font-bold mb-2">Message</label>
+                            <textarea id="message" rows="5" class="w-full bg-gray-700 text-white rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Let's talk about trains!"></textarea>
                         </div>
-                    </div>
-                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl">
-                        <img src="https://placehold.co/600x400/1e293b/a1a1aa?text=Train+4" alt="An elegant passenger train waiting at a platform." class="w-full h-48 object-cover">
-                        <div class="p-4">
-                            <h3 class="font-semibold text-lg text-white">Passenger Train</h3>
-                            <p class="text-gray-400 text-sm">Ready for a journey, a classic passenger train.</p>
+                        <div class="text-center">
+                            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">
+                                Send Message
+                            </button>
                         </div>
-                    </div>
-                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl">
-                        <img src="https://placehold.co/600x400/1e293b/a1a1aa?text=Train+5" alt="A locomotive in a beautiful mountain landscape." class="w-full h-48 object-cover">
-                        <div class="p-4">
-                            <h3 class="font-semibold text-lg text-white">Mountain Pass</h3>
-                            <p class="text-gray-400 text-sm">A train cutting through a stunning mountain view.</p>
-                        </div>
-                    </div>
-                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl">
-                        <img src="https://placehold.co/600x400/1e293b/a1a1aa?text=Train+6" alt="A night shot of a train in a bustling city." class="w-full h-48 object-cover">
-                        <div class="p-4">
-                            <h3 class="font-semibold text-lg text-white">City Lights</h3>
-                            <p class="text-gray-400 text-sm">A night train glides through a cityscape.</p>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </section>

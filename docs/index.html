@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Railway Hub</title>
+    <title>Trains Trooper</title>
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Inter -->
@@ -46,16 +46,6 @@
             color: #3b82f6; /* blue-500 */
             border-bottom: 2px solid #3b82f6;
         }
-
-        /* Simple animation for page content */
-        .page-content {
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
     </style>
 </head>
 <body class="bg-gray-900 text-white">
@@ -63,15 +53,15 @@
     <!-- Header and Navigation -->
     <header class="bg-gray-800 shadow-lg sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-white flex items-center">
+            <a href="index.html" class="text-2xl font-bold text-white flex items-center">
                 <img src="assets/logo.png" alt="The Railway Hub Logo" class="h-8 w-10 mr-2">
                 Trains Trooper
             </a>
             <div class="hidden md:flex space-x-8">
-                <a href="#home" class="nav-link text-lg hover:text-blue-400 transition duration-300 active" data-page="home">Home</a>
+                <a href="index.html" class="nav-link text-lg hover:text-blue-400 transition duration-300 active">Home</a>
                 <a href="gallery.html" class="nav-link text-lg hover:text-blue-400 transition duration-300">Gallery</a>
                 <a href="railquest.html" class="nav-link text-lg hover:text-blue-400 transition duration-300">RailQuest</a>
-                <a href="#contact" class="nav-link text-lg hover:text-blue-400 transition duration-300" data-page="contact">Contact</a>
+                <a href="contact.html" class="nav-link text-lg hover:text-blue-400 transition duration-300">Contact</a>
             </div>
             <!-- Mobile Menu Button -->
             <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
@@ -82,10 +72,10 @@
         </nav>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-2 pt-2 pb-3 space-y-1 sm:px-3">
-             <a href="#home" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700" data-page="home">Home</a>
+             <a href="index.html" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Home</a>
              <a href="gallery.html" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Gallery</a>
              <a href="railquest.html" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">RailQuest</a>
-             <a href="#contact" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700" data-page="contact">Contact</a>
+             <a href="contact.html" class="nav-link-mobile block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Contact</a>
         </div>
     </header>
 
@@ -99,98 +89,23 @@
                 <p class="text-lg sm:text-xl text-gray-200 font-medium max-w-2xl mb-8">
                     Connecting enthusiasts who share a love for trains, from model railroading to historical preservation and everything in between.
                 </p>
-                <a href="#gallery" data-page="gallery" class="nav-link-cta bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">
+                <a href="gallery.html" class="nav-link-cta bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">
                     Explore my Gallery
                 </a>
             </div>
         </section>
-
-        <!-- Contact Page Section -->
-        <section id="contact" class="page-content hidden min-h-screen bg-gray-900 py-16 px-4 flex items-center justify-center">
-             <div class="container mx-auto max-w-xl">
-                <h2 class="text-4xl font-bold text-center mb-12">Get In Touch</h2>
-                <div class="bg-gray-800 p-8 rounded-lg shadow-xl">
-                    <form>
-                        <div class="mb-6">
-                            <label for="name" class="block text-gray-300 text-sm font-bold mb-2">Name</label>
-                            <input type="text" id="name" class="w-full bg-gray-700 text-white rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your Name">
-                        </div>
-                         <div class="mb-6">
-                            <label for="email" class="block text-gray-300 text-sm font-bold mb-2">Email</label>
-                            <input type="email" id="email" class="w-full bg-gray-700 text-white rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="your.email@example.com">
-                        </div>
-                         <div class="mb-6">
-                            <label for="message" class="block text-gray-300 text-sm font-bold mb-2">Message</label>
-                            <textarea id="message" rows="5" class="w-full bg-gray-700 text-white rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Let's talk about trains!"></textarea>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">
-                                Send Message
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-
     </main>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const pages = document.querySelectorAll('.page-content');
-            const navLinks = document.querySelectorAll('.nav-link');
-            const mobileNavLinks = document.querySelectorAll('.nav-link-mobile');
-            const ctaLinks = document.querySelectorAll('.nav-link-cta');
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-
-            // Function to show a page and hide others
-            function showPage(pageId) {
-                pages.forEach(page => {
-                    page.classList.add('hidden');
-                });
-                const pageToShow = document.getElementById(pageId);
-                if (pageToShow) {
-                    pageToShow.classList.remove('hidden');
-                }
-
-                // Update active nav link for desktop
-                navLinks.forEach(link => {
-                    if (link.dataset.page === pageId) {
-                        link.classList.add('active');
-                    } else {
-                        link.classList.remove('active');
-                    }
-                });
-                
-                // Close mobile menu after selection
-                mobileMenu.classList.add('hidden');
-            }
-
-            // Combine all clickable links
-            const allLinks = [...navLinks, ...mobileNavLinks, ...ctaLinks];
-
-            // Add click listeners to all navigation links
-            allLinks.forEach(link => {
-                link.addEventListener('click', function (event) {
-                    event.preventDefault();
-                    const pageId = this.dataset.page;
-                    showPage(pageId);
-                    // Update URL hash for better navigation history
-                    window.location.hash = pageId;
-                });
-            });
 
             // Toggle mobile menu
             mobileMenuButton.addEventListener('click', function() {
                 mobileMenu.classList.toggle('hidden');
             });
-            
-            // Handle page show based on URL hash on initial load
-            const initialPage = window.location.hash.substring(1) || 'home';
-            showPage(initialPage);
         });
     </script>
 </body>
 </html>
-
