@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RailQuest - Trains Trooper</title>
+    <title>Gallery - Trains Trooper</title>
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Inter -->
@@ -14,29 +14,24 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            /* Start with opacity 0 and set a smooth transition */
             opacity: 0;
             transition: opacity 0.7s ease-in;
-            /* Full-page background image with a semi-transparent dark overlay */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('assets/thiago-logo-original.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            color: #e0e7ff;
         }
 
+        /* Class added by JavaScript to trigger the fade-in */
         body.page-loaded {
             opacity: 1;
         }
-        
         .full-background {
+            /* A beautiful train image from a free-to-use source */
             background-image: url('assets/thiago-logo-original.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            position: relative;
+            position: relative; /* Required for the pseudo-element */
         }
-    
+        /* Add a dark semi-transparent overlay */
         .full-background::before {
             content: '';
             position: absolute;
@@ -44,58 +39,33 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-        }
-        
-        /* Styles for the Trivia Game */
-        .container-bg {
-            background-color: rgba(17, 24, 39, 0.9);
-            backdrop-filter: blur(8px);
-        }
-        .button {
-            transition: all 0.2s ease-in-out;
-        }
-        .button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 14px rgba(66, 153, 225, 0.4);
-        }
-        .start-button {
-            background-image: linear-gradient(145deg, #3B82F6, #1D4ED8);
-            box-shadow: 0 10px 20px -8px rgba(59, 130, 246, 0.5);
-        }
-        .play-again-button {
-            background-image: linear-gradient(145deg, #10B981, #047857);
-            box-shadow: 0 10px 20px -8px rgba(16, 185, 129, 0.5);
+            background-color: rgba(0, 0, 0, 0.85); /* Adjusted opacity for better text readability */
+            z-index: 1; /* Place the overlay behind the content */
         }
         .correct-answer {
             color: #10B981 !important;
+            pointer-events: none;
+            cursor: not-allowed;
             animation: pulse-correct 1s infinite;
         }
         .wrong-answer {
             color: #EF4444 !important;
+            pointer-events: none;
+            cursor: not-allowed;
             animation: shake 0.5s;
         }
         .game-title {
             animation: fadeInDown 1s ease-out;
         }
         @keyframes pulse-correct {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
+            0% { transform: scale(1.0); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1.0); }
         }
         @keyframes shake {
-            0%, 100% {
-                transform: translateX(0);
-            }
-            20%, 60% {
-                transform: translateX(-5px);
-            }
-            40%, 80% {
-                transform: translateX(5px);
-            }
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-5px); }
+            40%, 80% { transform: translateX(5px); }
         }
         @keyframes fadeInDown {
             from {
@@ -109,74 +79,79 @@
         }
     </style>
 </head>
-<body class="bg-transparent">
-
-    <!-- Header Section -->
-    <header class="bg-gray-900 text-white shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="bg-gray-800 shadow-lg relative z-20">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-2">
-                <img src="assets/logo.png" alt="Trains Trooper Logo" class="h-10 rounded-full">
+                <img src="assets/logo.png" alt="Trains Trooper Logo" class="h-10">
                 <span class="text-xl md:text-2xl font-bold">Trains Trooper</span>
             </a>
-            <nav class="hidden md:flex space-x-8">
-                <a href="index.html" class="hover:text-blue-400 transition duration-300">Home</a>
-                <a href="gallery.html" class="hover:text-blue-400 transition duration-300">Gallery</a>
-                <a href="railquest.html" class="text-blue-400 font-bold hover:text-blue-400 transition duration-300">RailQuest</a>
-                <a href="contact.html" class="hover:text-blue-400 transition duration-300">Contact</a>
-            </nav>
-            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
-        </div>
-        <!-- Mobile Menu (hidden by default) -->
-        <nav id="mobile-menu" class="hidden bg-gray-800 py-4 text-center">
-            <a href="index.html" class="block py-2 text-gray-300 hover:text-white transition duration-300">Home</a>
-            <a href="gallery.html" class="block py-2 text-gray-300 hover:text-white transition duration-300">Gallery</a>
-            <a href="railquest.html" class="block py-2 text-blue-400 font-bold hover:text-white transition duration-300">RailQuest</a>
-            <a href="contact.html" class="block py-2 text-gray-300 hover:text-white transition duration-300">Contact</a>
-        </nav>
-    </header>
-    
-    <main class="py-12 md:py-20 flex items-center justify-center min-h-[calc(100vh-140px)] p-4">
-        <!-- Game Container -->
-        <div id="game-container" class="container-bg w-full max-w-2xl mx-auto p-8 md:p-12 rounded-2xl shadow-2xl text-center">
-
-            <!-- Start Screen -->
-            <div id="start-screen" class="space-y-8">
-                <h1 class="game-title text-4xl md:text-5xl font-extrabold text-white leading-tight">Freight Train Trivia</h1>
-                <p class="text-lg md:text-xl font-medium text-gray-300">Test your knowledge with 10 questions about the world of freight trains, their history, and their companies.</p>
-                <button id="start-button" class="start-button button text-white font-bold py-3 px-8 rounded-full text-lg md:text-xl transform hover:scale-105">
-                    Start Game
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-gray-300 hover:text-white transition duration-300">Home</a>
+                <a href="gallery.html" class="text-gray-300 hover:text-white transition duration-300">Gallery</a>
+                <a href="railquest.html" class="text-white font-bold">RailQuest</a>
+                <a href="contact.html" class="text-gray-300 hover:text-white transition duration-300">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
                 </button>
             </div>
-
-            <!-- Question Screen (hidden initially) -->
-            <div id="quiz-screen" class="hidden space-y-8">
-                <div class="flex justify-between items-center text-gray-400 font-bold text-sm md:text-base mb-4">
-                    <span id="question-count">Question 1 of 10</span>
-                    <span id="score">Score: 0</span>
-                </div>
-                <h2 id="question-text" class="text-xl md:text-2xl font-semibold text-gray-200 min-h-[80px]"></h2>
-                <div id="answer-buttons" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <button class="button answer-button bg-gray-700 text-gray-200 py-4 px-6 rounded-lg font-medium text-left transform hover:bg-gray-600 transition duration-200"></button>
-                    <button class="button answer-button bg-gray-700 text-gray-200 py-4 px-6 rounded-lg font-medium text-left transform hover:bg-gray-600 transition duration-200"></button>
-                    <button class="button answer-button bg-gray-700 text-gray-200 py-4 px-6 rounded-lg font-medium text-left transform hover:bg-gray-600 transition duration-200"></button>
-                    <button class="button answer-button bg-gray-700 text-gray-200 py-4 px-6 rounded-lg font-medium text-left transform hover:bg-gray-600 transition duration-200"></button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-800 shadow-lg">
+            <a href="index.html" class="block py-2 px-6 text-gray-300 hover:bg-gray-700 transition duration-300">Home</a>
+            <a href="gallery.html" class="block py-2 px-6 text-gray-300 hover:bg-gray-700 transition duration-300">Gallery</a>
+            <a href="railquest.html" class="block py-2 px-6 text-white font-bold bg-gray-700">RailQuest</a>
+            <a href="contact.html" class="block py-2 px-6 text-gray-300 hover:bg-gray-700 transition duration-300">Contact</a>
+        </div>
+    </header>
+    
+    <main class="flex-grow flex items-center justify-center py-12 px-4 relative">
+        <!-- Image in the upper right corner -->
+        <div class="absolute top-4 right-4 z-10">
+            <img src="assets/quest/leyend-1-27.jpg" alt="Railroad Signal Legend" class="w-24 h-24 sm:w-40 sm:h-32 rounded-lg shadow-md">
+        </div>
+        <div id="game-container" class="relative w-full max-w-2xl bg-gray-800 p-8 rounded-xl shadow-lg transform transition-all duration-300">
+            <!-- Start Screen -->
+            <div id="start-screen">
+                <h1 class="game-title text-3xl md:text-4xl font-bold text-center mb-4 text-white leading-tight">Freight Train Trivia</h1>
+                <p class="text-center text-gray-400 mb-8">Test your knowledge with 10 questions about the world of freight trains, their history, and their companies.</p>
+                <div class="flex flex-col items-center">
+                    <button id="start-button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-full text-xl transition duration-300 transform hover:scale-105">
+                        Start Quiz
+                    </button>
                 </div>
             </div>
 
-            <!-- Results Screen (hidden initially) -->
-            <div id="results-screen" class="hidden space-y-8">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-white leading-tight">Game Over!</h2>
-                <p id="final-score" class="text-2xl md:text-3xl font-bold text-green-400"></p>
-                <p id="result-message" class="text-lg md:text-xl text-gray-300"></p>
-                <button id="play-again-button" class="play-again-button button text-white font-bold py-3 px-8 rounded-full text-lg md:text-xl transform hover:scale-105">
+            <!-- Quiz Screen -->
+            <div id="quiz-screen" class="hidden">
+                <div class="flex justify-between items-center mb-6">
+                    <span id="question-count" class="text-lg font-semibold text-gray-400"></span>
+                    <span id="score" class="text-lg font-semibold text-gray-400">Score: 0</span>
+                </div>
+                <!-- This will display either the question text or image -->
+                <div id="question-display" class="text-center mb-6">
+                    <!-- The question content (text or image) will be injected here by the script -->
+                </div>
+                <div id="answer-buttons" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Answer buttons will be injected here -->
+                </div>
+            </div>
+
+            <!-- Results Screen -->
+            <div id="results-screen" class="hidden text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Quiz Complete!</h2>
+                <p id="final-score" class="text-2xl mb-4"></p>
+                <p id="result-message" class="text-xl font-semibold mb-8"></p>
+                <button id="play-again-button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-full text-xl transition duration-300 transform hover:scale-105">
                     Play Again
                 </button>
             </div>
-
         </div>
     </main>
 
@@ -195,10 +170,21 @@
         </div>
     </footer>
 
-    <!-- Include the separate file with the questions data first -->
     <script src="assets/quest/scripts/multiple-choice-questions.js"></script>
-    
-    <!-- Now include the script with the game logic -->
     <script src="assets/quest/scripts/trivia-game.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Add a class to the body when the page loads to trigger the fade-in effect
+            document.body.classList.add('page-loaded');
+            
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            // Toggle mobile menu
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>

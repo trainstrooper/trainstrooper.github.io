@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const resultsScreen = document.getElementById('results-screen');
     const startButton = document.getElementById('start-button');
     const playAgainButton = document.getElementById('play-again-button');
-    const questionText = document.getElementById('question-text');
+    const questionDisplay = document.getElementById('question-display');
     const answerButtonsContainer = document.getElementById('answer-buttons');
     const questionCountSpan = document.getElementById('question-count');
     const scoreSpan = document.getElementById('score');
@@ -36,67 +36,85 @@ document.addEventListener('DOMContentLoaded', function () {
     playAgainButton.addEventListener('click', startGame);
 
     /**
-     * Starts a new game session.
-     * Resets score, shuffles questions, and displays the first question.
+     * Starts or restarts the game.
      */
     function startGame() {
+        // Shuffle and select a subset of questions
+        const shuffledQuestions = [...allQuestions].sort(() => 0.5 - Math.random());
+        selectedQuestions = shuffledQuestions.slice(0, 10);
+        
         // Reset game state
         currentQuestionIndex = 0;
         score = 0;
         scoreSpan.textContent = `Score: ${score}`;
 
-        // Randomly select 10 questions from the allQuestions array
-        selectedQuestions = allQuestions.sort(() => 0.5 - Math.random()).slice(0, 10);
-
-        // Hide start/results screens and show the quiz screen
+        // Show the quiz screen
         startScreen.classList.add('hidden');
         resultsScreen.classList.add('hidden');
         quizScreen.classList.remove('hidden');
 
+        // Display the first question
         showQuestion();
     }
 
     /**
-     * Displays the current question and its answers.
+     * Displays the current question and its answer choices.
      */
     function showQuestion() {
+        // Clear previous content
+        answerButtonsContainer.innerHTML = '';
+        questionDisplay.innerHTML = '';
+        
+        // Check if there are more questions
         if (currentQuestionIndex < selectedQuestions.length) {
+            // Get the current question
             const currentQuestion = selectedQuestions[currentQuestionIndex];
-            questionText.textContent = currentQuestion.question;
-            questionCountSpan.textContent = `Question ${currentQuestionIndex + 1} of 10`;
+            
+            // Check if the question has an image
+            if (currentQuestion.image) {
+                const questionImage = document.createElement('img');
+                questionImage.src = currentQuestion.image;
+                questionImage.alt = currentQuestion.answers[currentQuestion.correctAnswer]; // Use the correct answer as alt text for accessibility
+                questionImage.classList.add('w-full', 'max-h-60', 'object-contain', 'rounded-lg', 'mb-4', 'shadow-md');
+                questionDisplay.appendChild(questionImage);
+            } else {
+                const questionText = document.createElement('h2');
+                questionText.textContent = currentQuestion.question;
+                questionText.classList.add('text-xl', 'md:text-2xl', 'font-bold', 'mb-6', 'text-center');
+                questionDisplay.appendChild(questionText);
+            }
 
-            // Clear previous answers and create new buttons for the current question
-            answerButtonsContainer.innerHTML = '';
+            // Update the question count
+            questionCountSpan.textContent = `Question ${currentQuestionIndex + 1} of 10`;
+            
+            // Create buttons for each answer choice
             currentQuestion.answers.forEach((answer, index) => {
                 const button = document.createElement('button');
                 button.textContent = answer;
-                button.classList.add('button', 'answer-button', 'bg-gray-700', 'text-gray-200', 'py-4', 'px-6', 'rounded-lg', 'font-medium', 'text-left', 'transform', 'hover:bg-gray-600', 'transition', 'duration-200');
-                button.dataset.index = index;
-                button.addEventListener('click', handleAnswerClick);
+                button.classList.add('answer-button', 'w-full', 'py-3', 'px-6', 'rounded-lg', 'font-semibold', 'text-white', 'bg-blue-600', 'hover:bg-blue-700', 'transition', 'duration-300', 'transform', 'hover:scale-105', 'shadow-md', 'mb-4');
+                button.setAttribute('data-index', index);
+                button.addEventListener('click', () => handleAnswerClick(button, index));
                 answerButtonsContainer.appendChild(button);
             });
         } else {
-            // End of the game, show results
+            // End of the game
             showResults();
         }
     }
 
     /**
-     * Handles the user's answer click.
-     * @param {Event} event The click event object.
+     * Handles a user's answer click.
+     * @param {HTMLElement} selectedButton - The button element that was clicked.
+     * @param {number} selectedAnswerIndex - The index of the selected answer.
      */
-    function handleAnswerClick(event) {
-        const selectedButton = event.target;
-        const selectedAnswerIndex = parseInt(selectedButton.dataset.index);
-        const currentQuestion = selectedQuestions[currentQuestionIndex];
-
+    function handleAnswerClick(selectedButton, selectedAnswerIndex) {
         // Disable all buttons to prevent multiple clicks
         Array.from(answerButtonsContainer.children).forEach(button => {
-            button.removeEventListener('click', handleAnswerClick);
             button.disabled = true;
         });
 
-        // Check if the selected answer is correct and update the score
+        const currentQuestion = selectedQuestions[currentQuestionIndex];
+
         if (selectedAnswerIndex === currentQuestion.correctAnswer) {
             score++;
             scoreSpan.textContent = `Score: ${score}`;
@@ -104,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             selectedButton.classList.add('wrong-answer');
             // Highlight the correct answer for the user
-            // const correctButton = answerButtonsContainer.querySelector(`[data-index="${currentQuestion.correctAnswer}"]`);
+            // const correctButton = answerButtonsContainer.querySelector(`[data-index=\"${currentQuestion.correctAnswer}\"]`);
             // if (correctButton) {
             //     correctButton.classList.add('correct-answer');
             // }
