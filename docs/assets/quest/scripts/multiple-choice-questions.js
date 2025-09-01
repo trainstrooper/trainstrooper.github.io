@@ -1,0 +1,2352 @@
+const allQuestions = [
+    {
+    "question": "Which country boasts the world's busiest railway system by passenger volume?",
+    "answers": [
+    "China",
+    "Japan",
+    "India",
+    "United States"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "The famous Amtrak route that runs along the West Coast, from Seattle to Los Angeles, is known as the:",
+    "answers": [
+    "California Zephyr",
+    "Coast Starlight",
+    "Empire Builder",
+    "Pacific Surfliner"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "The Eurostar is a high-speed passenger train that connects which two cities via the Channel Tunnel?",
+    "answers": [
+    "London and Brussels",
+    "Paris and Berlin",
+    "London and Paris",
+    "Madrid and Lisbon"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "Which type of passenger car is specifically designed with a large, glass-enclosed section on the roof for sightseeing?",
+    "answers": [
+    "Sleeper car",
+    "Dining car",
+    "Dome car",
+    "Coach car"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "The Orient Express, famous for its luxury and intrigue, connected Paris with what city in its original route?",
+    "answers": [
+    "Rome",
+    "Istanbul",
+    "Moscow",
+    "Athens"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "Which of these is not a class of service typically found on Amtrak's long-distance trains?",
+    "answers": [
+    "Coach",
+    "Business",
+    "First Class",
+    "Sleeping Car"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "The Trans-Siberian Railway, the longest railway line in the world, runs from Moscow to what city?",
+    "answers": [
+    "Beijing",
+    "Vladivostok",
+    "St. Petersburg",
+    "Kyiv"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is the name of the oldest continuously operated scenic railway in the United States, located in Colorado?",
+    "answers": [
+    "Durango & Silverton Narrow Gauge Railroad",
+    "Mount Washington Cog Railway",
+    "Grand Canyon Railway",
+    "Cuyahoga Valley Scenic Railroad"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "Which company operates the high-speed rail network known as the TGV (Train à Grande Vitesse) in France?",
+    "answers": [
+    "Deutsche Bahn",
+    "Renfe",
+    "SNCF",
+    "Italo"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "A type of passenger train that stops at most or all stations along a route is called a:",
+    "answers": [
+    "Express train",
+    "Local train",
+    "Bullet train",
+    "Shuttle train"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is the name of the high-speed rail system in Japan?",
+    "answers": [
+    "Maglev",
+    "ICE",
+    "Shinkansen",
+    "Tokaido"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "The first public railway to use steam locomotives, opening in 1825, was located in what country?",
+    "answers": [
+    "France",
+    "United States",
+    "Germany",
+    "Great Britain"
+    ],
+    "correctAnswer": 3
+    },
+    {
+    "question": "Which famous train station in New York City is known for its celestial ceiling mural?",
+    "answers": [
+    "Penn Station",
+    "Grand Central Terminal",
+    "Union Station",
+    "30th Street Station"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What does a couchette car provide on a passenger train?",
+    "answers": [
+    "A private, full-sized bed",
+    "A small compartment with bunk beds",
+    "A shower and restroom",
+    "A seating area and table"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "The first subway system in the world opened in which city?",
+    "answers": [
+    "New York City",
+    "Paris",
+    "London",
+    "Tokyo"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "Which railroad company operated the famous 'Super Chief' passenger train in the United States?",
+    "answers": [
+    "Union Pacific",
+    "Santa Fe",
+    "BNSF",
+    "Southern Pacific"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "The world's highest railway station is located on which continent?",
+    "answers": [
+    "Asia",
+    "South America",
+    "Europe",
+    "North America"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "What is the name of the scenic train that travels through the Canadian Rockies, known for its luxury service?",
+    "answers": [
+    "Rocky Mountaineer",
+    "The Canadian",
+    "VIA Rail",
+    "Royal Canadian Pacific"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "The 'Bullet Train' nickname comes from the train's resemblance to a:",
+    "answers": [
+    "Flying saucer",
+    "Supersonic jet",
+    "Bullet",
+    "Torpedo"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "Which U.S. state has the most miles of railroad track?",
+    "answers": [
+    "California",
+    "Texas",
+    "Illinois",
+    "Nebraska"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "A locomotive's 'tender' is used for carrying what?",
+    "answers": [
+    "Extra crew members",
+    "Fuel and water",
+    "Baggage",
+    "Emergency supplies"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "Which company operates passenger rail service in Canada?",
+    "answers": [
+    "CP Rail",
+    "VIA Rail",
+    "Amtrak",
+    "Rocky Mountaineer"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "The train known as 'The Ghan' travels across which continent's outback?",
+    "answers": [
+    "Africa",
+    "Australia",
+    "Asia",
+    "Europe"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is the purpose of a passenger train's 'head-end power' (HEP)?",
+    "answers": [
+    "To provide lighting, heating, and air conditioning to the cars",
+    "To power the locomotive's engine",
+    "To operate the train's brakes",
+    "To communicate with the control center"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "Which country is home to the scenic 'Flåm Railway'?",
+    "answers": [
+    "Switzerland",
+    "Norway",
+    "Austria",
+    "Sweden"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "The world's first modern high-speed rail system was opened in 1964 in what country?",
+    "answers": [
+    "Japan",
+    "France",
+    "Germany",
+    "Italy"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "What does the term 'monorail' mean?",
+    "answers": [
+    "A train with a single car",
+    "A train that runs on a single rail",
+    "A train that only runs on one track",
+    "A train with one locomotive"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "Which of the following famous passenger trains travels through the Andes Mountains in South America?",
+    "answers": [
+    "The Blue Train",
+    "The Palace on Wheels",
+    "The Hiram Bingham",
+    "The Rocky Mountaineer"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "The 'Royal Scotsman' is a luxury passenger train that operates in what country?",
+    "answers": [
+    "England",
+    "Ireland",
+    "Scotland",
+    "Wales"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is the name of the passenger car with seats that can be reversed to face either direction?",
+    "answers": [
+    "A reversible car",
+    "A bi-directional car",
+    "A saloon car",
+    "A coach car"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "The 'Glacier Express' is a famous scenic train that travels through which country?",
+    "answers": [
+    "France",
+    "Switzerland",
+    "Austria",
+    "Germany"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "Which train holds the current world record for the fastest wheeled passenger train?",
+    "answers": [
+    "TGV",
+    "Shinkansen",
+    "Maglev",
+    "ICE"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "The 'Blue Train' is a famous luxury train that travels through which country?",
+    "answers": [
+    "Russia",
+    "South Africa",
+    "India",
+    "Australia"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is the name of the train station in London that serves as the terminus for the Eurostar?",
+    "answers": [
+    "Paddington Station",
+    "Waterloo Station",
+    "St. Pancras International",
+    "King's Cross Station"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "Which Indian passenger train is known as the 'Palace on Wheels'?",
+    "answers": [
+    "Maharajas' Express",
+    "Royal Rajasthan on Wheels",
+    "Deccan Odyssey",
+    "Palace on Wheels"
+    ],
+    "correctAnswer": 3
+    },
+    {
+    "question": "A 'trainspotter' is a person who engages in what hobby?",
+    "answers": [
+    "Collecting model trains",
+    "Building train dioramas",
+    "Tracking and observing trains as a hobby",
+    "Riding trains for leisure"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is the primary function of a passenger car's 'bogey'?",
+    "answers": [
+    "To connect cars together",
+    "To hold the car's wheels and axles",
+    "To power the car's electricity",
+    "To provide a sleeping area"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "The term 'commuter rail' refers to trains used for what purpose?",
+    "answers": [
+    "Long-distance travel",
+    "Transporting cargo",
+    "Daily travel to and from work or school",
+    "Luxury excursions"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "Which U.S. passenger railroad system is the most heavily used?",
+    "answers": [
+    "Metrolink",
+    "MTA",
+    "MBTA",
+    "Amtrak"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is the name of the high-speed rail system in Germany?",
+    "answers": [
+    "ICE (Intercity-Express)",
+    "TGV",
+    "AVE",
+    "Frecciarossa"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "Which of these famous trains, known for its luxury, travels through Scotland?",
+    "answers": [
+    "The Venice Simplon-Orient-Express",
+    "The Royal Scotsman",
+    "The Blue Train",
+    "The Ghan"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is the name of the railway that runs through the Andes Mountains and is one of the highest in the world?",
+    "answers": [
+    "The Hiram Bingham",
+    "The Trans-Andean Railway",
+    "Ferrocarril Central Andino",
+    "The Andean Explorer"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "Which city is home to the world's largest railway station by the number of platforms?",
+    "answers": [
+    "New York City",
+    "Paris",
+    "Tokyo",
+    "Grand Central Terminal"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "The 'City of New Orleans' is a famous Amtrak route that runs from Chicago to what city?",
+    "answers": [
+    "New Orleans",
+    "Miami",
+    "Atlanta",
+    "Houston"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "What is the name of the railway that connects England to Scotland, running along the coast?",
+    "answers": [
+    "The West Coast Main Line",
+    "The East Coast Main Line",
+    "The Midland Main Line",
+    "The Great Western Main Line"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "The famous 'Jacobite Steam Train', featured in the Harry Potter films, travels through which country?",
+    "answers": [
+    "England",
+    "Wales",
+    "Scotland",
+    "Ireland"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is the name of the passenger car that provides sleeping accommodations for travelers on long journeys?",
+    "answers": [
+    "Sleeper car",
+    "Baggage car",
+    "Coach car",
+    "Dining car"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "Which of these is a popular luxury train that travels through the Australian Outback?",
+    "answers": [
+    "The Royal Scotsman",
+    "The Blue Train",
+    "The Ghan",
+    "The Trans-Siberian"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is the term for a train that is used for tourist or recreational purposes, often on a heritage railway?",
+    "answers": [
+    "Freight train",
+    "Commuter train",
+    "Excursion train",
+    "Local train"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "The 'Tokaido Shinkansen' is the world's most heavily traveled high-speed rail line and connects Tokyo with what other major city?",
+    "answers": [
+    "Kyoto",
+    "Nagoya",
+    "Osaka",
+    "Fukuoka"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What famous event, often referred to as the 'Golden Spike' ceremony, marked the completion of the First Transcontinental Railroad?",
+    "answers": [
+    "The driving of the final rail spike at Promontory Summit, Utah",
+    "The first train's arrival in San Francisco",
+    "The signing of the Pacific Railway Act",
+    "The completion of the Central Pacific and Union Pacific merger"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "Which of these famous figures was a prominent railroad tycoon who built his empire in the late 19th century?",
+    "answers": [
+    "Henry Ford",
+    "Cornelius Vanderbilt",
+    "J.P. Morgan",
+    "Andrew Carnegie"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "In railroad jargon, what is a 'gandy dancer'?",
+    "answers": [
+    "A person who inspects train cars",
+    "A railroad construction worker who laid tracks",
+    "A train conductor",
+    "A freight car full of goods"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What city is often referred to as the Hub of the Nation due to its historical importance as a major railroad hub?",
+    "answers": [
+    "St. Louis, Missouri",
+    "Chicago, Illinois",
+    "Kansas City, Missouri",
+    "Omaha, Nebraska"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What was the primary cargo of the famous 'ghost trains' that ran during the American Civil War?",
+    "answers": [
+    "Food and supplies for soldiers",
+    "Confederate gold",
+    "Union spies",
+    "The bodies of fallen soldiers"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "What term is used to describe the large, semi-circular building used for servicing and storing locomotives?",
+    "answers": [
+    "A yard",
+    "A roundhouse",
+    "A siding",
+    "A depot"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "The famous 'Casey Jones' was a locomotive engineer known for what?",
+    "answers": [
+    "His heroic last stand to save his passengers in a train collision",
+    "Creating the first railway whistle",
+    "Developing the first steam locomotive",
+    "His role in the Great Locomotive Chase"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "Which state was the starting point for the Union Pacific Railroad's portion of the First Transcontinental Railroad?",
+    "answers": [
+    "California",
+    "Nebraska",
+    "New York",
+    "Illinois"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is the railroad term for a track that branches off the main line to allow a train to pass or stop?",
+    "answers": [
+    "A rail",
+    "A siding",
+    "A switch",
+    "A track"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "The world's first steam locomotive was built by which engineer in 1804?",
+    "answers": [
+    "George Stephenson",
+    "James Watt",
+    "Richard Trevithick",
+    "Robert Fulton"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "Which of the following is not a common railroad track gauge?",
+    "answers": [
+    "Standard Gauge",
+    "Narrow Gauge",
+    "Broad Gauge",
+    "Medium Gauge"
+    ],
+    "correctAnswer": 3
+    },
+    {
+    "question": "What is the name of the historic event where a steam locomotive was stolen by Union spies during the Civil War?",
+    "answers": [
+    "The Great Locomotive Chase",
+    "The Iron Horse Rebellion",
+    "The Vicksburg Raid",
+    "The Battle of Gettysburg"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "What term is used for the metal rails that form the railway track?",
+    "answers": [
+    "Rails",
+    "Ties",
+    "Ballast",
+    "Switches"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "What famous person invented the air brake, which greatly improved the safety of trains?",
+    "answers": [
+    "Thomas Edison",
+    "Henry Bessemer",
+    "George Westinghouse",
+    "Nikola Tesla"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "The first official time zones in the United States were established to help standardize what industry?",
+    "answers": [
+    "Air travel",
+    "Railroads",
+    "Maritime shipping",
+    "Telecommunications"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is a 'car knocker' in railroad terminology?",
+    "answers": [
+    "An engineer who drives the train",
+    "A person who inspects and repairs train cars",
+    "A freight car",
+    "A train conductor"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "The 'Pullman car' was a type of what, designed for luxury travel?",
+    "answers": [
+    "Freight car",
+    "Coach car",
+    "Sleeping car",
+    "Locomotive"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is the name of the world's longest continuously operated railway line?",
+    "answers": [
+    "The Trans-Siberian Railway",
+    "The Canadian",
+    "The Orient Express",
+    "The California Zephyr"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "What does the term 'highball' mean in railroad slang?",
+    "answers": [
+    "A signal to stop immediately",
+    "A signal to proceed at full speed",
+    "A type of freight car",
+    "A passenger car"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "Which city became the first major railroad hub in the United States, connecting the Northeast to the West?",
+    "answers": [
+    "New York City",
+    "Philadelphia",
+    "Chicago",
+    "Boston"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What does a 'yard' refer to in railroad terminology?",
+    "answers": [
+    "A unit of measurement",
+    "A location where trains are assembled, disassembled, and stored",
+    "The distance between two stations",
+    "The length of a train"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "The Big Boy locomotives were a class of what type of engine?",
+    "answers": [
+    "Diesel-electric",
+    "Electric",
+    "Steam",
+    "Turbine"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is the term for a train that is not in active service and is being moved to a new location?",
+    "answers": [
+    "Deadhead",
+    "Ghost train",
+    "Yard goat",
+    "Consist"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "Which famous American railroad company was founded by Collis P. Huntington and his associates?",
+    "answers": [
+    "Union Pacific",
+    "Santa Fe",
+    "Central Pacific",
+    "Norfolk Southern"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "The first railroad bridge over the Mississippi River was built in what city?",
+    "answers": [
+    "St. Louis, Missouri",
+    "Davenport, Iowa",
+    "New Orleans, Louisiana",
+    "Memphis, Tennessee"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is the name of the railroad tycoon known for his aggressive business tactics and for building a railroad empire in the Northeast?",
+    "answers": [
+    "James J. Hill",
+    "Leland Stanford",
+    "Cornelius Vanderbilt",
+    "George Pullman"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "The term 'hogger' is railroad slang for what job?",
+    "answers": [
+    "A conductor",
+    "A brakeman",
+    "A track inspector",
+    "A locomotive engineer"
+    ],
+    "correctAnswer": 3
+    },
+    {
+    "question": "What is the oldest continuously operating steam locomotive in North America?",
+    "answers": [
+    "The Puffin' Billy",
+    "The Tom Thumb",
+    "The John Bull",
+    "The TGV"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "Which famous railroad bridge, located in Scotland, was known for a disastrous collapse in 1879?",
+    "answers": [
+    "Forth Bridge",
+    "Tay Bridge",
+    "Forth Rail Bridge",
+    "Gare de l'Est"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What railroad company, headquartered in Omaha, Nebraska, is the largest in North America?",
+    "answers": [
+    "BNSF Railway",
+    "CSX Transportation",
+    "Union Pacific",
+    "Norfolk Southern"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is a 'whistle stop' in railroad terminology?",
+    "answers": [
+    "A small town where a train only stops briefly to pick up or drop off passengers",
+    "A type of steam whistle",
+    "A signal to the conductor to slow down",
+    "A railroad crossing"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "The famous 'iron horse' is a nickname for what?",
+    "answers": [
+    "A locomotive",
+    "A freight train",
+    "A passenger car",
+    "A railroad tie"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "What railroad company was founded by Leland Stanford and was a key part of the First Transcontinental Railroad?",
+    "answers": [
+    "Union Pacific",
+    "Central Pacific",
+    "Southern Pacific",
+    "Santa Fe"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What does the term 'derailment' mean?",
+    "answers": [
+    "A train leaving the tracks",
+    "A train stopping suddenly",
+    "A train's engine breaking down",
+    "A train's cargo shifting"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "The famous 'Flying Scotsman' is a steam locomotive from what country?",
+    "answers": [
+    "United States",
+    "Germany",
+    "Great Britain",
+    "France"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is a 'cowcatcher' on the front of a locomotive used for?",
+    "answers": [
+    "To remove snow and ice from the tracks",
+    "To clear obstacles like livestock from the tracks",
+    "To signal a train to slow down",
+    "To hold the locomotive's supplies"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What railroad company was famously involved in a stock market scandal in the 1870s?",
+    "answers": [
+    "Union Pacific",
+    "Erie Railroad",
+    "Santa Fe",
+    "Great Northern"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is the purpose of a railway 'caboose'?",
+    "answers": [
+    "To provide a sleeping area for passengers",
+    "To carry the train's cargo",
+    "A car at the end of a freight train for the crew and observation",
+    "A car used to transport animals"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is the railroad term for the gravel or stone used to stabilize the tracks?",
+    "answers": [
+    "Rails",
+    "Ties",
+    "Ballast",
+    "Couplers"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "Which of these famous railroad bridges is located in Scotland and is known for its distinctive red color?",
+    "answers": [
+    "Forth Bridge",
+    "Millau Viaduct",
+    "Forth Rail Bridge",
+    "Tay Bridge"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "What is a 'track gang'?",
+    "answers": [
+    "A group of people who inspect the trains",
+    "A group of workers who maintain the tracks",
+    "A train crew",
+    "A group of engineers"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is the famous railroad town in Wyoming that was a major stop for the Union Pacific?",
+    "answers": [
+    "Denver",
+    "Cheyenne",
+    "Omaha",
+    "Salt Lake City"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "The first public railroad to carry passengers was the 'Baltimore and Ohio' which opened in which year?",
+    "answers": [
+    "1804",
+    "1825",
+    "1830",
+    "1869"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is a 'dead man's switch' on a train?",
+    "answers": [
+    "A device that stops the train if the engineer becomes incapacitated",
+    "A switch to shut down the train's power",
+    "A switch to activate the emergency brakes",
+    "A switch to change the train's speed"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "Which railroad magnate was known for creating the 'Great Northern Railway'?",
+    "answers": [
+    "Leland Stanford",
+    "James J. Hill",
+    "Cornelius Vanderbilt",
+    "George Pullman"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is a 'car knocker' in railroad terminology?",
+    "answers": [
+    "An engineer who drives the train",
+    "A person who inspects and repairs train cars",
+    "A freight car",
+    "A train conductor"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "The famous 'Pullman car' was a type of what, designed for luxury travel?",
+    "answers": [
+    "Freight car",
+    "Coach car",
+    "Sleeping car",
+    "Locomotive"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is the name of the world's longest continuously operated railway line?",
+    "answers": [
+    "The Trans-Siberian Railway",
+    "The Canadian",
+    "The Orient Express",
+    "The California Zephyr"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "What is the term for the people who rode trains for free during the Great Depression?",
+    "answers": [
+    "Rail riders",
+    "Hoboes",
+    "Freight hoppers",
+    "Rail travelers"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is the primary purpose of a freight train's locomotive?",
+    "answers": [
+    "To carry cargo",
+    "To push or pull the train cars",
+    "To house the conductor",
+    "To generate electricity for the cars"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "Which of these is not considered a 'Class I' railroad in North America?",
+    "answers": [
+    "Union Pacific",
+    "BNSF Railway",
+    "Canadian National",
+    "Amtrak"
+    ],
+    "correctAnswer": 3
+    },
+    {
+    "question": "What does the railroad term 'manifest' refer to?",
+    "answers": [
+    "A train carrying a variety of different types of cargo",
+    "A document listing the contents of a single car",
+    "A type of locomotive",
+    "A schedule for a freight train's journey"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "The invention of the refrigerated rail car revolutionized the transport of what type of goods?",
+    "answers": [
+    "Lumber",
+    "Coal",
+    "Perishable foods",
+    "Automobiles"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is the job title of the person responsible for the safe and efficient operation of a freight train from the cab?",
+    "answers": [
+    "Conductor",
+    "Brakeman",
+    "Engineer",
+    "Yardmaster"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "Which type of freight car is used to transport liquid commodities like crude oil or chemicals?",
+    "answers": [
+    "Hopper car",
+    "Gondola car",
+    "Boxcar",
+    "Tank car"
+    ],
+    "correctAnswer": 3
+    },
+    {
+    "question": "What does 'intermodal' transportation mean in the freight industry?",
+    "answers": [
+    "Using multiple trains for one trip",
+    "Transporting freight using two or more different modes of transport",
+    "Transporting freight between two countries",
+    "Transporting freight for multiple companies"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "Which of these is the largest railroad company in the United States by operating revenue?",
+    "answers": [
+    "BNSF Railway",
+    "CSX Transportation",
+    "Union Pacific",
+    "Norfolk Southern"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "The first successful demonstration of a steam-powered locomotive for commercial use was in which country?",
+    "answers": [
+    "United States",
+    "Great Britain",
+    "Germany",
+    "France"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is a 'hump yard' primarily used for?",
+    "answers": [
+    "Storing locomotives",
+    "A facility to sort and classify freight cars",
+    "Repairing damaged cars",
+    "Transferring cargo from one train to another"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is the purpose of a freight train's 'waybill'?",
+    "answers": [
+    "A document that details the train's route",
+    "A list of the crew members on board",
+    "A document detailing the contents and destination of a freight shipment",
+    "A financial record of the train's operating costs"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "Which famous railroad tycoon was known as 'The Commodore'?",
+    "answers": [
+    "George Pullman",
+    "James J. Hill",
+    "Cornelius Vanderbilt",
+    "Andrew Carnegie"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "A 'unit train' is a freight train carrying what?",
+    "answers": [
+    "Only one type of cargo from a single origin to a single destination",
+    "Cargo for a single company",
+    "A variety of goods",
+    "Only one locomotive"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "What is the railroad term for a track used to temporarily hold cars or trains, allowing others to pass?",
+    "answers": [
+    "Main line",
+    "Siding",
+    "Spur",
+    "Terminal"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "Which railroad company operates the 'Powder River Basin' coal trains?",
+    "answers": [
+    "CSX",
+    "Norfolk Southern",
+    "BNSF and Union Pacific",
+    "Kansas City Southern"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is a 'consist' in railroad jargon?",
+    "answers": [
+    "The list of cars in a train",
+    "The crew members on a train",
+    "The train's engine",
+    "The final destination of a train"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "The 'piggyback' freight service involves placing what on a flatcar?",
+    "answers": [
+    "Livestock",
+    "Another train car",
+    "Semi-trailers or truck trailers",
+    "Bulk goods like grain"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is a 'gondola car' primarily used to transport?",
+    "answers": [
+    "Liquid fuels",
+    "Grain and agricultural products",
+    "Heavy, bulky items like coal or steel",
+    "Vehicles"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is the name of the railroad job responsible for the physical coupling and uncoupling of cars?",
+    "answers": [
+    "Engineer",
+    "Conductor",
+    "Brakeman",
+    "Track foreman"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "The famous 'Big Boy' steam locomotives were used for what purpose?",
+    "answers": [
+    "Commuter rail service",
+    "Pulling heavy freight trains over mountain passes",
+    "Luxury passenger service",
+    "Mail delivery"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What does a 'block signal' do?",
+    "answers": [
+    "Indicates the train's speed",
+    "Indicates the presence of a train in a specific section of track",
+    "Indicates the direction of travel",
+    "Indicates a warning for a sharp curve"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "Which North American railroad company has a logo featuring a beaver?",
+    "answers": [
+    "Union Pacific",
+    "Canadian National",
+    "BNSF",
+    "Canadian Pacific"
+    ],
+    "correctAnswer": 3
+    },
+    {
+    "question": "The 'transload' process involves transferring cargo between what?",
+    "answers": [
+    "Two different trains",
+    "A train and a ship or truck",
+    "Two different rail yards",
+    "A train and an airplane"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is a 'slug' in railroad terminology?",
+    "answers": [
+    "A small, slow train",
+    "A non-powered locomotive unit that receives power from another locomotive",
+    "A type of boxcar",
+    "A person who works in a rail yard"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "Which of these is the most common type of freight car in the United States?",
+    "answers": [
+    "Boxcar",
+    "Tank car",
+    "Hopper car",
+    "Flatcar"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "The world's longest freight train was recorded in what country?",
+    "answers": [
+    "United States",
+    "Australia",
+    "China",
+    "Russia"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is the primary role of a 'rail yard master'?",
+    "answers": [
+    "Driving the locomotive",
+    "Managing the movements of trains within a rail yard",
+    "Maintaining the tracks",
+    "Selling tickets for freight transport"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What does 'LCL' stand for in freight rail shipping?",
+    "answers": [
+    "Load Carrying Limit",
+    "Less than a Carload",
+    "Limited Capacity Load",
+    "Local Cargo Line"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is a 'consist' in railroad jargon?",
+    "answers": [
+    "The list of cars in a train",
+    "The crew members on a train",
+    "The train's engine",
+    "The final destination of a train"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "What does 'TOFC' stand for in intermodal rail transport?",
+    "answers": [
+    "Train-Operated Flat Car",
+    "Trailer on Flatcar",
+    "Transcontinental Freight Carrier",
+    "Tonnage-Optimized Freight Container"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is a 'refrigerator car' used for?",
+    "answers": [
+    "Transporting frozen food",
+    "Transporting ice",
+    "Transporting food that needs to be kept cool",
+    "Transporting refrigerated containers"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "Which of these is a major coal-hauling railroad in the Eastern United States?",
+    "answers": [
+    "Union Pacific",
+    "BNSF Railway",
+    "Norfolk Southern",
+    "Canadian National"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is a 'gondola car' primarily used to transport?",
+    "answers": [
+    "Liquid fuels",
+    "Grain and agricultural products",
+    "Heavy, bulky items like coal or steel",
+    "Vehicles"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "The 'Manifest Destiny' concept in U.S. history was heavily influenced by the expansion of what?",
+    "answers": [
+    "The U.S. Postal Service",
+    "The transcontinental railroad",
+    "The telegraph network",
+    "The highway system"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is the railroad term for a device used to couple or uncouple two train cars?",
+    "answers": [
+    "A brake",
+    "A coupler",
+    "A tie",
+    "A rail"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "Which company, co-founded by James J. Hill, was a key player in the development of the Pacific Northwest?",
+    "answers": [
+    "The Great Northern Railway",
+    "Union Pacific",
+    "Central Pacific",
+    "Santa Fe"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "What does 'double-stack' mean in freight transport?",
+    "answers": [
+    "Transporting containers on a train, stacked two high",
+    "A locomotive with two engines",
+    "Two trains traveling on the same track",
+    "A train with two conductors"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "A freight train's 'draft gear' is located where?",
+    "answers": [
+    "On the roof of the car",
+    "Under the car",
+    "At the end of the car, connected to the coupler",
+    "Inside the locomotive"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is the job title of the person responsible for the safe and efficient operation of a freight train from the cab?",
+    "answers": [
+    "Conductor",
+    "Brakeman",
+    "Engineer",
+    "Yardmaster"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is a 'hotbox' in railroad jargon?",
+    "answers": [
+    "A hot-tempered engineer",
+    "An overheating wheel bearing on a train car",
+    "A type of insulated boxcar",
+    "A signal box"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "Which company was the result of a famous 1995 merger between Burlington Northern and Santa Fe?",
+    "answers": [
+    "CSX",
+    "BNSF Railway",
+    "Norfolk Southern",
+    "Union Pacific"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is a 'gondola car' primarily used to transport?",
+    "answers": [
+    "Liquid fuels",
+    "Grain and agricultural products",
+    "Heavy, bulky items like coal or steel",
+    "Vehicles"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "Which type of freight car has a hinged roof and is used for transporting vehicles?",
+    "answers": [
+    "Hopper car",
+    "Boxcar",
+    "Autorack",
+    "Flatcar"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "The 'Pacific Railway Act' of 1862 authorized the construction of what?",
+    "answers": [
+    "The first transcontinental railroad",
+    "A new passenger line to the West Coast",
+    "A railway for military use only",
+    "The first subway system"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "What is the term for a freight car that has no roof and is used to transport materials like sand or gravel?",
+    "answers": [
+    "Boxcar",
+    "Gondola",
+    "Hopper car",
+    "Flatcar"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "Which of these jobs is responsible for controlling train movements and issuing track warrants?",
+    "answers": [
+    "Conductor",
+    "Engineer",
+    "Yardmaster",
+    "Dispatcher"
+    ],
+    "correctAnswer": 3
+    },
+    {
+    "question": "What is the railroad term for a set of locomotives linked together to pull a train?",
+    "answers": [
+    "A consist",
+    "A double-header",
+    "A power unit",
+    "A tandem"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "Which of these is a major railroad company in the Eastern United States?",
+    "answers": [
+    "Union Pacific",
+    "BNSF Railway",
+    "CSX Transportation",
+    "Canadian Pacific"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is a 'freight forwarder'?",
+    "answers": [
+    "A type of locomotive",
+    "A company that specializes in organizing and arranging freight shipments",
+    "A type of freight car",
+    "A person who inspects freight cars"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What does a 'switch' do in a rail yard?",
+    "answers": [
+    "Changes the train's speed",
+    "Changes the direction of the tracks",
+    "Changes the train's power source",
+    "Changes the train's destination"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is the purpose of a 'brakeman' on a freight train?",
+    "answers": [
+    "To operate the train's brakes",
+    "To inspect the brakes of each car",
+    "To assist the engineer and conductor with various duties",
+    "To monitor the train's speed"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is the railroad term for the final car at the end of a freight train?",
+    "answers": [
+    "A caboose",
+    "A pusher",
+    "A switcher",
+    "A bobtail"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "What is a 'unit train' used for?",
+    "answers": [
+    "Transporting a single, specific commodity",
+    "Transporting mixed goods",
+    "Transporting passengers",
+    "Transporting oversized loads"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "What does 'Tractive Effort' refer to in a locomotive?",
+    "answers": [
+    "The number of wheels on the locomotive",
+    "The pulling force a locomotive can generate",
+    "The locomotive's maximum speed",
+    "The weight of the locomotive"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is a 'hopper car' primarily used to transport?",
+    "answers": [
+    "Liquids",
+    "Grain, coal, or other bulk commodities",
+    "Steel and lumber",
+    "General merchandise"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "Which railroad company is headquartered in Fort Worth, Texas, and is a major player in the Western U.S.?",
+    "answers": [
+    "Union Pacific",
+    "Kansas City Southern",
+    "Norfolk Southern",
+    "BNSF Railway"
+    ],
+    "correctAnswer": 3
+    },
+    {
+    "question": "What is a 'flatcar' used for?",
+    "answers": [
+    "Transporting liquids",
+    "Transporting cars",
+    "Transporting bulk goods",
+    "Transporting large or heavy machinery, vehicles, or containers"
+    ],
+    "correctAnswer": 3
+    },
+    {
+    "question": "What is the railroad term for a small locomotive used for moving cars around a rail yard?",
+    "answers": [
+    "A mainline locomotive",
+    "A slug",
+    "A yard goat",
+    "A deadhead"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is 'dynamic braking' in a locomotive?",
+    "answers": [
+    "Using the engine's traction motors to slow the train",
+    "Using the air brakes to stop the train",
+    "A method of emergency braking",
+    "Using manual handbrakes on each car"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "Which famous railroad tycoon was known as 'The Empire Builder'?",
+    "answers": [
+    "James J. Hill",
+    "Cornelius Vanderbilt",
+    "George Pullman",
+    "Leland Stanford"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "What is a 'double-stack' train used to transport?",
+    "answers": [
+    "Coal",
+    "Grain",
+    "Intermodal containers",
+    "Oil"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "The first railway car designed to transport automobiles was called an 'autorack' and was introduced in what decade?",
+    "answers": [
+    "1930s",
+    "1950s",
+    "1920s",
+    "1960s"
+    ],
+    "correctAnswer": 3
+    },
+    {
+    "question": "What is the purpose of a 'buffer car' in a freight train?",
+    "answers": [
+    "To provide a space for the crew to rest",
+    "To act as a spacer between dangerous goods and the locomotive or crew",
+    "To provide extra braking power",
+    "To store extra fuel"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "Which of these is a major railroad company in the Eastern United States?",
+    "answers": [
+    "Union Pacific",
+    "BNSF Railway",
+    "CSX Transportation",
+    "Canadian Pacific"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is a 'hotbox' in railroad jargon?",
+    "answers": [
+    "A hot-tempered engineer",
+    "An overheating wheel bearing on a train car",
+    "A type of insulated boxcar",
+    "A signal box"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is the railroad term for a small locomotive used for moving cars around a rail yard?",
+    "answers": [
+    "A mainline locomotive",
+    "A slug",
+    "A yard goat",
+    "A deadhead"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is 'dynamic braking' in a locomotive?",
+    "answers": [
+    "Using the engine's traction motors to slow the train",
+    "Using the air brakes to stop the train",
+    "A method of emergency braking",
+    "Using manual handbrakes on each car"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "Which famous railroad tycoon was known as 'The Empire Builder'?",
+    "answers": [
+    "James J. Hill",
+    "Cornelius Vanderbilt",
+    "George Pullman",
+    "Leland Stanford"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "What is a 'double-stack' train used to transport?",
+    "answers": [
+    "Coal",
+    "Grain",
+    "Intermodal containers",
+    "Oil"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "The first railway car designed to transport automobiles was called an 'autorack' and was introduced in what decade?",
+    "answers": [
+    "1930s",
+    "1950s",
+    "1920s",
+    "1960s"
+    ],
+    "correctAnswer": 3
+    },
+    {
+    "question": "What is the purpose of a 'buffer car' in a freight train?",
+    "answers": [
+    "To provide a space for the crew to rest",
+    "To act as a spacer between dangerous goods and the locomotive or crew",
+    "To provide extra braking power",
+    "To store extra fuel"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is the railroad term for a small locomotive used for moving cars around a rail yard?",
+    "answers": [
+    "A mainline locomotive",
+    "A slug",
+    "A yard goat",
+    "A deadhead"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is 'dynamic braking' in a locomotive?",
+    "answers": [
+    "Using the engine's traction motors to slow the train",
+    "Using the air brakes to stop the train",
+    "A method of emergency braking",
+    "Using manual handbrakes on each car"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "Which famous railroad tycoon was known as 'The Empire Builder'?",
+    "answers": [
+    "James J. Hill",
+    "Cornelius Vanderbilt",
+    "George Pullman",
+    "Leland Stanford"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "What is a 'double-stack' train used to transport?",
+    "answers": [
+    "Coal",
+    "Grain",
+    "Intermodal containers",
+    "Oil"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "The first railway car designed to transport automobiles was called an 'autorack' and was introduced in what decade?",
+    "answers": [
+    "1930s",
+    "1950s",
+    "1920s",
+    "1960s"
+    ],
+    "correctAnswer": 3
+    },
+    {
+    "question": "What is the purpose of a 'buffer car' in a freight train?",
+    "answers": [
+    "To provide a space for the crew to rest",
+    "To act as a spacer between dangerous goods and the locomotive or crew",
+    "To provide extra braking power",
+    "To store extra fuel"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "Which of these railroad companies is headquartered in Omaha, Nebraska?",
+    "answers": [
+    "Union Pacific",
+    "BNSF",
+    "CSX",
+    "Norfolk Southern"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "What is the railroad term for a train that is running late?",
+    "answers": [
+    "A hotshot",
+    "A drag",
+    "A hogger",
+    "A deadhead"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "Which of these is not a common type of freight car?",
+    "answers": [
+    "Boxcar",
+    "Flatcar",
+    "Tank car",
+    "Passenger car"
+    ],
+    "correctAnswer": 3
+    },
+    {
+    "question": "What is the name of the railroad tycoon known for building a railroad empire in the Northeast?",
+    "answers": [
+    "James J. Hill",
+    "Cornelius Vanderbilt",
+    "Leland Stanford",
+    "George Pullman"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What does a 'switchman' do in a rail yard?",
+    "answers": [
+    "Changes the train's speed",
+    "Changes the tracks and signals",
+    "Changes the crew",
+    "Changes the train's destination"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is the railroad term for a train that has no crew and is being moved to another location?",
+    "answers": [
+    "A ghost train",
+    "A deadhead",
+    "A runaway",
+    "A consist"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "The famous 'Pony Express' was eventually replaced by what?",
+    "answers": [
+    "The railroad",
+    "The telegraph",
+    "The mail truck",
+    "The stagecoach"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "Which of these is a major rail line that carries freight between the U.S. and Mexico?",
+    "answers": [
+    "Union Pacific",
+    "BNSF Railway",
+    "Kansas City Southern",
+    "CSX"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is the primary function of a 'hump yard'?",
+    "answers": [
+    "To repair trains",
+    "To store trains",
+    "To sort and classify freight cars by their destination",
+    "To refuel trains"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is the term for a train that is carrying mixed goods?",
+    "answers": [
+    "A unit train",
+    "A manifest",
+    "A hotshot",
+    "A drag"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "Which of these railroad companies is primarily in the eastern part of the United States?",
+    "answers": [
+    "BNSF Railway",
+    "Norfolk Southern",
+    "Union Pacific",
+    "Canadian National"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is a 'flatcar' typically used to transport?",
+    "answers": [
+    "Grain",
+    "Oil",
+    "Large or heavy machinery",
+    "Packaged goods"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is the purpose of an 'end-of-train device' (EOTD)?",
+    "answers": [
+    "To provide a signal to the locomotive engineer",
+    "To monitor the air brake pressure at the end of the train",
+    "To store tools for the crew",
+    "To provide a safety light at the end of the train"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is a 'ballast' on a railroad track?",
+    "answers": [
+    "The metal rails",
+    "The wooden ties",
+    "The gravel or crushed stone that supports the tracks",
+    "The steel spikes that hold the rails in place"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "Which of these is a type of freight car used to transport automobiles?",
+    "answers": [
+    "Hopper car",
+    "Boxcar",
+    "Autorack",
+    "Tank car"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is the job title of the person responsible for the safe and efficient operation of a freight train from the cab?",
+    "answers": [
+    "Conductor",
+    "Brakeman",
+    "Engineer",
+    "Yardmaster"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "The first railway car designed to transport automobiles was called an 'autorack' and was introduced in what decade?",
+    "answers": [
+    "1930s",
+    "1950s",
+    "1920s",
+    "1960s"
+    ],
+    "correctAnswer": 3
+    },
+    {
+    "question": "What is the purpose of a 'buffer car' in a freight train?",
+    "answers": [
+    "To provide a space for the crew to rest",
+    "To act as a spacer between dangerous goods and the locomotive or crew",
+    "To provide extra braking power",
+    "To store extra fuel"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is the railroad term for a small locomotive used for moving cars around a rail yard?",
+    "answers": [
+    "A mainline locomotive",
+    "A slug",
+    "A yard goat",
+    "A deadhead"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is 'dynamic braking' in a locomotive?",
+    "answers": [
+    "Using the engine's traction motors to slow the train",
+    "Using the air brakes to stop the train",
+    "A method of emergency braking",
+    "Using manual handbrakes on each car"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "Which famous railroad tycoon was known as 'The Empire Builder'?",
+    "answers": [
+    "James J. Hill",
+    "Cornelius Vanderbilt",
+    "George Pullman",
+    "Leland Stanford"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "What is a 'double-stack' train used to transport?",
+    "answers": [
+    "Coal",
+    "Grain",
+    "Intermodal containers",
+    "Oil"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "The first railway car designed to transport automobiles was called an 'autorack' and was introduced in what decade?",
+    "answers": [
+    "1930s",
+    "1950s",
+    "1920s",
+    "1960s"
+    ],
+    "correctAnswer": 3
+    },
+    {
+    "question": "What is the purpose of a 'buffer car' in a freight train?",
+    "answers": [
+    "To provide a space for the crew to rest",
+    "To act as a spacer between dangerous goods and the locomotive or crew",
+    "To provide extra braking power",
+    "To store extra fuel"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is the railroad term for a train that is running late?",
+    "answers": [
+    "A hotshot",
+    "A drag",
+    "A hogger",
+    "A deadhead"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "Which of these is not a common type of freight car?",
+    "answers": [
+    "Boxcar",
+    "Flatcar",
+    "Tank car",
+    "Passenger car"
+    ],
+    "correctAnswer": 3
+    },
+    {
+    "question": "What is the name of the railroad tycoon known for building a railroad empire in the Northeast?",
+    "answers": [
+    "James J. Hill",
+    "Cornelius Vanderbilt",
+    "Leland Stanford",
+    "George Pullman"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What does a 'switchman' do in a rail yard?",
+    "answers": [
+    "Changes the train's speed",
+    "Changes the tracks and signals",
+    "Changes the crew",
+    "Changes the train's destination"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is the railroad term for a train that has no crew and is being moved to another location?",
+    "answers": [
+    "A ghost train",
+    "A deadhead",
+    "A runaway",
+    "A consist"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "The famous 'Pony Express' was eventually replaced by what?",
+    "answers": [
+    "The railroad",
+    "The telegraph",
+    "The mail truck",
+    "The stagecoach"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "Which of these is a major rail line that carries freight between the U.S. and Mexico?",
+    "answers": [
+    "Union Pacific",
+    "BNSF Railway",
+    "Kansas City Southern",
+    "CSX"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is the primary function of a 'hump yard'?",
+    "answers": [
+    "To repair trains",
+    "To store trains",
+    "To sort and classify freight cars by their destination",
+    "To refuel trains"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is the term for a train that is carrying mixed goods?",
+    "answers": [
+    "A unit train",
+    "A manifest",
+    "A hotshot",
+    "A drag"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "Which of these railroad companies is primarily in the eastern part of the United States?",
+    "answers": [
+    "BNSF Railway",
+    "Norfolk Southern",
+    "Union Pacific",
+    "Canadian National"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is the purpose of an 'end-of-train device' (EOTD)?",
+    "answers": [
+    "To provide a signal to the locomotive engineer",
+    "To monitor the air brake pressure at the end of the train",
+    "To store tools for the crew",
+    "To provide a safety light at the end of the train"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is a 'ballast' on a railroad track?",
+    "answers": [
+    "The metal rails",
+    "The wooden ties",
+    "The gravel or crushed stone that supports the tracks",
+    "The steel spikes that hold the rails in place"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "Which of these is a type of freight car used to transport automobiles?",
+    "answers": [
+    "Hopper car",
+    "Boxcar",
+    "Autorack",
+    "Tank car"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is the railroad term for a train that is running late?",
+    "answers": [
+    "A hotshot",
+    "A drag",
+    "A hogger",
+    "A deadhead"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is the name of the railroad tycoon known for building a railroad empire in the Northeast?",
+    "answers": [
+    "James J. Hill",
+    "Cornelius Vanderbilt",
+    "Leland Stanford",
+    "George Pullman"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What does a 'switchman' do in a rail yard?",
+    "answers": [
+    "Changes the train's speed",
+    "Changes the tracks and signals",
+    "Changes the crew",
+    "Changes the train's destination"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is the railroad term for a train that has no crew and is being moved to another location?",
+    "answers": [
+    "A ghost train",
+    "A deadhead",
+    "A runaway",
+    "A consist"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "The famous 'Pony Express' was eventually replaced by what?",
+    "answers": [
+    "The railroad",
+    "The telegraph",
+    "The mail truck",
+    "The stagecoach"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "Which of these is a major rail line that carries freight between the U.S. and Mexico?",
+    "answers": [
+    "Union Pacific",
+    "BNSF Railway",
+    "Kansas City Southern",
+    "CSX"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is the primary function of a 'hump yard'?",
+    "answers": [
+    "To repair trains",
+    "To store trains",
+    "To sort and classify freight cars by their destination",
+    "To refuel trains"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is the term for a train that is carrying mixed goods?",
+    "answers": [
+    "A unit train",
+    "A manifest",
+    "A hotshot",
+    "A drag"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is the purpose of an 'end-of-train device' (EOTD)?",
+    "answers": [
+    "To provide a signal to the locomotive engineer",
+    "To monitor the air brake pressure at the end of the train",
+    "To store tools for the crew",
+    "To provide a safety light at the end of the train"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is a 'ballast' on a railroad track?",
+    "answers": [
+    "The metal rails",
+    "The wooden ties",
+    "The gravel or crushed stone that supports the tracks",
+    "The steel spikes that hold the rails in place"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "Which of these is a type of freight car used to transport automobiles?",
+    "answers": [
+    "Hopper car",
+    "Boxcar",
+    "Autorack",
+    "Tank car"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is the railroad term for a train that is running late?",
+    "answers": [
+    "A hotshot",
+    "A drag",
+    "A hogger",
+    "A deadhead"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is the name of the railroad tycoon known for building a railroad empire in the Northeast?",
+    "answers": [
+    "James J. Hill",
+    "Cornelius Vanderbilt",
+    "Leland Stanford",
+    "George Pullman"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What does a 'switchman' do in a rail yard?",
+    "answers": [
+    "Changes the train's speed",
+    "Changes the tracks and signals",
+    "Changes the crew",
+    "Changes the train's destination"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is the railroad term for a train that has no crew and is being moved to another location?",
+    "answers": [
+    "A ghost train",
+    "A deadhead",
+    "A runaway",
+    "A consist"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "The famous 'Pony Express' was eventually replaced by what?",
+    "answers": [
+    "The railroad",
+    "The telegraph",
+    "The mail truck",
+    "The stagecoach"
+    ],
+    "correctAnswer": 0
+    },
+    {
+    "question": "Which of these is a major rail line that carries freight between the U.S. and Mexico?",
+    "answers": [
+    "Union Pacific",
+    "BNSF Railway",
+    "Kansas City Southern",
+    "CSX"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is the primary function of a 'hump yard'?",
+    "answers": [
+    "To repair trains",
+    "To store trains",
+    "To sort and classify freight cars by their destination",
+    "To refuel trains"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "What is the term for a train that is carrying mixed goods?",
+    "answers": [
+    "A unit train",
+    "A manifest",
+    "A hotshot",
+    "A drag"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is the purpose of an 'end-of-train device' (EOTD)?",
+    "answers": [
+    "To provide a signal to the locomotive engineer",
+    "To monitor the air brake pressure at the end of the train",
+    "To store tools for the crew",
+    "To provide a safety light at the end of the train"
+    ],
+    "correctAnswer": 1
+    },
+    {
+    "question": "What is a 'ballast' on a railroad track?",
+    "answers": [
+    "The metal rails",
+    "The wooden ties",
+    "The gravel or crushed stone that supports the tracks",
+    "The steel spikes that hold the rails in place"
+    ],
+    "correctAnswer": 2
+    },
+    {
+    "question": "Which of these is a type of freight car used to transport automobiles?",
+    "answers": [
+    "Hopper car",
+    "Boxcar",
+    "Autorack",
+    "Tank car"
+    ],
+    "correctAnswer": 2
+    }
+];

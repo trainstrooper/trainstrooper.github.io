@@ -68,11 +68,11 @@
             box-shadow: 0 10px 20px -8px rgba(16, 185, 129, 0.5);
         }
         .correct-answer {
-            background-color: #10B981;
+            color: #10B981 !important;
             animation: pulse-correct 1s infinite;
         }
         .wrong-answer {
-            background-color: #EF4444;
+            color: #EF4444 !important;
             animation: shake 0.5s;
         }
         .game-title {
@@ -195,164 +195,10 @@
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Add a class to the body when the page loads to trigger the fade-in effect
-            document.body.classList.add('page-loaded');
-            
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-
-            // Toggle mobile menu
-            mobileMenuButton.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-            });
-
-
-            // The full list of trivia questions
-            const allQuestions = [
-                { question: "What is the primary purpose of a freight train's locomotive?", answers: ["To carry cargo", "To push or pull the train cars", "To house the conductor", "To generate electricity for the cars"], correctAnswer: 1 },
-                { question: "Which of these is not considered a 'Class I' railroad in North America?", answers: ["Union Pacific", "BNSF Railway", "Canadian National", "Amtrak"], correctAnswer: 3 },
-                { question: "What does the railroad term 'manifest' refer to?", answers: ["A train carrying a variety of different types of cargo", "A document listing the contents of a single car", "A type of locomotive", "A schedule for a freight train's journey"], correctAnswer: 0 },
-                { question: "The invention of the refrigerated rail car revolutionized the transport of what type of goods?", answers: ["Lumber", "Coal", "Perishable foods", "Automobiles"], correctAnswer: 2 },
-                { question: "What is the job title of the person responsible for the safe and efficient operation of a freight train from the cab?", answers: ["Conductor", "Brakeman", "Engineer", "Yardmaster"], correctAnswer: 2 },
-                { question: "Which type of freight car is used to transport liquid commodities like crude oil or chemicals?", answers: ["Hopper car", "Gondola car", "Boxcar", "Tank car"], correctAnswer: 3 },
-                { question: "What does 'intermodal' transportation mean in the freight industry?", answers: ["Using multiple trains for one trip", "Transporting freight using two or more different modes of transport", "Transporting freight between two countries", "Transporting freight for multiple companies"], correctAnswer: 1 },
-                { question: "Which of these is the largest railroad company in the United States by operating revenue?", answers: ["BNSF Railway", "CSX Transportation", "Union Pacific", "Norfolk Southern"], correctAnswer: 2 },
-                { question: "The first successful demonstration of a steam-powered locomotive for commercial use was in which country?", answers: ["United States", "Great Britain", "Germany", "France"], correctAnswer: 1 },
-                { question: "What is a 'hump yard' primarily used for?", answers: ["Storing locomotives", "A facility to sort and classify freight cars", "Repairing damaged cars", "Transferring cargo from one train to another"], correctAnswer: 1 },
-                { question: "What is the purpose of a freight train's 'waybill'?", answers: ["A document that details the train's route", "A list of the crew members on board", "A document detailing the contents and destination of a freight shipment", "A financial record of the train's operating costs"], correctAnswer: 2 },
-                { question: "Which famous railroad tycoon was known as 'The Commodore'?", answers: ["George Pullman", "James J. Hill", "Cornelius Vanderbilt", "Andrew Carnegie"], correctAnswer: 2 },
-                { question: "A 'unit train' is a freight train carrying what?", answers: ["Only one type of cargo from a single origin to a single destination", "Cargo for a single company", "A variety of goods", "Only one locomotive"], correctAnswer: 0 },
-                { question: "What is the railroad term for a track used to temporarily hold cars or trains, allowing others to pass?", answers: ["Main line", "Siding", "Spur", "Terminal"], correctAnswer: 1 },
-                { question: "Which railroad company operates the 'Powder River Basin' coal trains?", answers: ["CSX", "Norfolk Southern", "BNSF and Union Pacific", "Kansas City Southern"], correctAnswer: 2 },
-                { question: "What is a 'consist' in railroad jargon?", answers: ["The list of cars in a train", "The crew members on a train", "The train's engine", "The final destination of a train"], correctAnswer: 0 },
-                { question: "The 'piggyback' freight service involves placing what on a flatcar?", answers: ["Livestock", "Another train car", "Semi-trailers or truck trailers", "Bulk goods like grain"], correctAnswer: 2 },
-                { question: "What is a 'gondola car' primarily used to transport?", answers: ["Liquid fuels", "Grain and agricultural products", "Heavy, bulky items like coal or steel", "Vehicles"], correctAnswer: 2 },
-                { question: "What is the name of the railroad job responsible for the physical coupling and uncoupling of cars?", answers: ["Engineer", "Conductor", "Brakeman", "Track foreman"], correctAnswer: 2 },
-                { question: "The famous 'Big Boy' steam locomotives were used for what purpose?", answers: ["Commuter rail service", "Pulling heavy freight trains over mountain passes", "Luxury passenger service", "Mail delivery"], correctAnswer: 1 },
-                { question: "What is a 'hotbox' in railroad jargon?", answers: ["A hot-tempered engineer", "An overheating wheel bearing on a train car", "A type of insulated boxcar", "A signal box"], correctAnswer: 1 },
-                { question: "What is the railroad term for a small locomotive used for moving cars around a rail yard?", answers: ["A mainline locomotive", "A slug", "A yard goat", "A deadhead"], correctAnswer: 2 },
-                { question: "Which famous railroad tycoon was known as 'The Empire Builder'?", answers: ["James J. Hill", "Cornelius Vanderbilt", "George Pullman", "Leland Stanford"], correctAnswer: 0 },
-                { question: "What is a 'double-stack' train used to transport?", answers: ["Coal", "Grain", "Intermodal containers", "Oil"], correctAnswer: 2 },
-                { question: "The first railway car designed to transport automobiles was called an 'autorack' and was introduced in what decade?", answers: ["1930s", "1950s", "1920s", "1960s"], correctAnswer: 3 },
-                { question: "What is the purpose of a 'buffer car' in a freight train?", answers: ["To provide a space for the crew to rest", "To act as a spacer between dangerous goods and the locomotive or crew", "To provide extra braking power", "To store extra fuel"], correctAnswer: 1 },
-                { question: "Which of these railroad companies is headquartered in Omaha, Nebraska?", answers: ["Union Pacific", "BNSF", "CSX", "Norfolk Southern"], correctAnswer: 0 },
-                { question: "What is the railroad term for a train that is running late?", answers: ["A hotshot", "A drag", "A hogger", "A deadhead"], correctAnswer: 1 },
-                { question: "Which of these is not a common type of freight car?", answers: ["Boxcar", "Flatcar", "Tank car", "Passenger car"], correctAnswer: 3 },
-                { question: "What is the name of the railroad tycoon known for building a railroad empire in the Northeast?", answers: ["James J. Hill", "Cornelius Vanderbilt", "Leland Stanford", "George Pullman"], correctAnswer: 1 },
-            ];
-
-            // Global state variables
-            let selectedQuestions = [];
-            let currentQuestionIndex = 0;
-            let score = 0;
-
-            // DOM elements
-            const startScreen = document.getElementById('start-screen');
-            const quizScreen = document.getElementById('quiz-screen');
-            const resultsScreen = document.getElementById('results-screen');
-            const startButton = document.getElementById('start-button');
-            const playAgainButton = document.getElementById('play-again-button');
-            const questionText = document.getElementById('question-text');
-            const answerButtonsContainer = document.getElementById('answer-buttons');
-            const questionCountSpan = document.getElementById('question-count');
-            const scoreSpan = document.getElementById('score');
-            const finalScoreText = document.getElementById('final-score');
-            const resultMessage = document.getElementById('result-message');
-
-            // Event Listeners
-            startButton.addEventListener('click', startGame);
-            playAgainButton.addEventListener('click', startGame);
-
-            // Game Functions
-            function startGame() {
-                // Reset game state
-                currentQuestionIndex = 0;
-                score = 0;
-                scoreSpan.textContent = `Score: ${score}`;
-
-                // Randomly select 10 questions
-                selectedQuestions = allQuestions.sort(() => 0.5 - Math.random()).slice(0, 10);
-
-                // Hide start/results screens and show quiz screen
-                startScreen.classList.add('hidden');
-                resultsScreen.classList.add('hidden');
-                quizScreen.classList.remove('hidden');
-
-                showQuestion();
-            }
-
-            function showQuestion() {
-                if (currentQuestionIndex < selectedQuestions.length) {
-                    const currentQuestion = selectedQuestions[currentQuestionIndex];
-                    questionText.textContent = currentQuestion.question;
-                    questionCountSpan.textContent = `Question ${currentQuestionIndex + 1} of 10`;
-
-                    // Reset and populate answer buttons
-                    answerButtonsContainer.innerHTML = '';
-                    currentQuestion.answers.forEach((answer, index) => {
-                        const button = document.createElement('button');
-                        button.textContent = answer;
-                        button.classList.add('button', 'answer-button', 'bg-gray-700', 'text-gray-200', 'py-4', 'px-6', 'rounded-lg', 'font-medium', 'text-left', 'transform', 'hover:bg-gray-600', 'transition', 'duration-200');
-                        button.dataset.index = index;
-                        button.addEventListener('click', handleAnswerClick);
-                        answerButtonsContainer.appendChild(button);
-                    });
-                } else {
-                    showResults();
-                }
-            }
-
-            function handleAnswerClick(event) {
-                const selectedButton = event.target;
-                const selectedAnswerIndex = parseInt(selectedButton.dataset.index);
-                const currentQuestion = selectedQuestions[currentQuestionIndex];
-
-                // Disable all buttons to prevent multiple clicks
-                Array.from(answerButtonsContainer.children).forEach(button => {
-                    button.removeEventListener('click', handleAnswerClick);
-                    button.disabled = true;
-                });
-
-                // Check if the answer is correct
-                if (selectedAnswerIndex === currentQuestion.correctAnswer) {
-                    score++;
-                    scoreSpan.textContent = `Score: ${score}`;
-                    selectedButton.classList.add('correct-answer');
-                } else {
-                    selectedButton.classList.add('wrong-answer');
-                    // Highlight the correct answer
-                    const correctButton = answerButtonsContainer.querySelector(`[data-index="${currentQuestion.correctAnswer}"]`);
-                    if (correctButton) {
-                        correctButton.classList.add('correct-answer');
-                    }
-                }
-
-                // Move to the next question after a short delay
-                setTimeout(() => {
-                    currentQuestionIndex++;
-                    showQuestion();
-                }, 1000);
-            }
-
-            function showResults() {
-                quizScreen.classList.add('hidden');
-                resultsScreen.classList.remove('hidden');
-
-                finalScoreText.textContent = `You scored ${score} out of 10!`;
-                if (score === 10) {
-                    resultMessage.textContent = "You're a true train expert!";
-                    resultMessage.classList.add('text-green-400');
-                } else if (score >= 7) {
-                    resultMessage.textContent = "Great job! You know a lot about freight trains.";
-                    resultMessage.classList.add('text-green-400');
-                } else {
-                    resultMessage.textContent = "Looks like you could use a few more trips on the rails. Try again!";
-                    resultMessage.classList.add('text-yellow-400');
-                }
-            }
-        });
-    </script>
+    <!-- Include the separate file with the questions data first -->
+    <script src="assets/quest/scripts/multiple-choice-questions.js"></script>
+    
+    <!-- Now include the script with the game logic -->
+    <script src="assets/quest/scripts/trivia-game.js"></script>
 </body>
 </html>
