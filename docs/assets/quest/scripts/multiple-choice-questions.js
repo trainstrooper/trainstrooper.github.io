@@ -2510,5 +2510,95 @@ const allQuestions = [
     "answers": ["speed limit sign", "resume speed sign", "approach sign", "stop sign"],
     "correctAnswer": 3,
     "image": "assets/quest/question-27.jpg"
+    },
+    {
+    "question": 27,
+    "image": "assets/quest/question-28.jpg",
+    "answers": ["clear to next interlocking", "approach clear", "clear", "approach limited"],
+    "correctAnswer": 2
+    },
+    {
+    "question": 28,
+    "image": "assets/quest/question-29.jpg",
+    "answers": ["limited clear", "approach limited", "medium clear", "approach slow"],
+    "correctAnswer": 1
+    },
+    {
+    "question": 29,
+    "image": "assets/quest/question-30.jpg",
+    "answers": ["approach", "approach med", "medium approach", "slow clear"],
+    "correctAnswer": 1
+    },
+    {
+    "question": 30,
+    "image": "assets/quest/question-31.jpg",
+    "answers": ["approach", "restricting", "stop and proceed", "stop signal"],
+    "correctAnswer": 0
+    },
+    {
+    "question": 31,
+    "image": "assets/quest/question-32.jpg",
+    "answers": ["switch closed signal", "switch open signal", "approach restricting", "slide detector signal"],
+    "correctAnswer": 2
+    },
+    {
+    "question": 32,
+    "image": "assets/quest/question-33.jpg",
+    "answers": ["block-limit", "approach block-limit", "approach speed limit sign", "diverging clear limited"],
+    "correctAnswer": 3
+    },
+    {
+    "question": 33,
+    "image": "assets/quest/question-34.jpg",
+    "answers": ["resume speed sign", "approach sign", "diverging clear", "clear to next interlocking"],
+    "correctAnswer": 2
+    },
+    {
+    "question": 34,
+    "image": "assets/quest/question-35.jpg",
+    "answers": ["approach clear", "diverging clear slow", "approach limited", "limited clear"],
+    "correctAnswer": 1
+    },
+    {
+    "question": 35,
+    "image": "assets/quest/question-36.jpg",
+    "answers": ["approach medium", "medium clear", "approach slow", "diverging apr limited"],
+    "correctAnswer": 3
+    },
+    {
+    "question": 36,
+    "image": "assets/quest/question-37.jpg",
+    "answers": ["approach restricting", "diverging approach", "slow clear", "slow approach"],
+    "correctAnswer": 1
+    },
+    {
+    "question": 37,
+    "image": "assets/quest/question-38.jpg",
+    "answers": ["restricting", "stop and proceed", "diverging apr slow", "switch closed signal"],
+    "correctAnswer": 2
+    },
+    {
+    "question": 38,
+    "image": "assets/quest/question-39.jpg",
+    "answers": ["stop and proceed", "clear slide detector signal", "slide detector signal", "block-limit"],
+    "correctAnswer": 0
+    },
+    {
+    "question": 39,
+    "image": "assets/quest/question-40.jpg",
+    "answers": ["approach block-limit", "approach speed limit sign", "speed limit sign", "restricting"],
+    "correctAnswer": 3
+    },
+    {
+    "question": 40,
+    "image": "assets/quest/question-41.jpg",
+    "answers": ["flashing stop and proc", "stop sign", "clear to next interlocking", "approach clear"],
+    "correctAnswer": 0
+    },
+    {
+    "question": 41,
+    "image": "assets/quest/question-42.jpg",
+    "answers": ["stop", "approach limited", "limited clear", "approach medium"],
+    "correctAnswer": 0
     }
 ];
