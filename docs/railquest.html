@@ -17,31 +17,33 @@
             /* Start with opacity 0 and set a smooth transition */
             opacity: 0;
             transition: opacity 0.7s ease-in;
+            
+            /* Background image covering the entire viewport */
+            background-image: url('assets/thiago-logo-original.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
         }
 
         /* Class added by JavaScript to trigger the fade-in */
         body.page-loaded {
             opacity: 1;
         }
-        .full-background {
-            /* A beautiful train image from a free-to-use source */
-            background-image: url('assets/thiago-logo-original.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: relative; /* Required for the pseudo-element */
-        }
-        /* Add a dark semi-transparent overlay */
-        .full-background::before {
+
+        /* Full-screen semi-transparent overlay */
+        body::before {
             content: '';
-            position: absolute;
+            position: fixed; /* Fixed position to cover the entire viewport */
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.85); /* Adjusted opacity for better text readability */
-            z-index: 1; /* Place the overlay behind the content */
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: -1; /* Place it behind the content */
         }
+        
         .correct-answer {
             color: #10B981 !important;
             pointer-events: none;
