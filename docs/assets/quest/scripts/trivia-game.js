@@ -122,10 +122,10 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             selectedButton.classList.add('wrong-answer');
             // Highlight the correct answer for the user
-            // const correctButton = answerButtonsContainer.querySelector(`[data-index=\"${currentQuestion.correctAnswer}\"]`);
-            // if (correctButton) {
-            //     correctButton.classList.add('correct-answer');
-            // }
+            const correctButton = answerButtonsContainer.querySelector(`[data-index=\"${currentQuestion.correctAnswer}\"]`);
+            if (correctButton) {
+                correctButton.classList.add('correct-answer');
+            }
         }
 
         // Move to the next question after a short delay
